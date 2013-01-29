@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mojos>
+    <applicationHandler>
+        <groupId>com.photon.phresco.commons</groupId>
+        <artifactId>phresco-commons</artifactId>
+        <version>2.0.0.34002</version>
+        <class>com.photon.phresco.impl.IPhoneApplicationProcessor</class>
+        <selectedFeatures>[{&quot;groupId&quot;:&quot;modules.tech-iphone-hybrid.files&quot;,&quot;artifactId&quot;:&quot;cordova&quot;,&quot;packaging&quot;:&quot;zip&quot;,&quot;versions&quot;:[{&quot;artifactGroupId&quot;:&quot;8ca831b4-eda5-432b-a4f7-dc479342ce64&quot;,&quot;version&quot;:&quot;2.2&quot;,&quot;used&quot;:false,&quot;fileSize&quot;:0,&quot;appliesTo&quot;:[{&quot;techId&quot;:&quot;tech-iphone-hybrid&quot;,&quot;required&quot;:true}],&quot;id&quot;:&quot;f0120dcd-3ac6-4ae4-8a0a-51abbf39c770&quot;,&quot;creationDate&quot;:&quot;Dec 11, 2012 4:26:51 PM&quot;,&quot;system&quot;:false}],&quot;type&quot;:&quot;FEATURE&quot;,&quot;appliesTo&quot;:[{&quot;techId&quot;:&quot;tech-iphone-hybrid&quot;,&quot;core&quot;:false}],&quot;licenseId&quot;:&quot;7e680248-da51-4cde-bf5c-2c219f7d6377&quot;,&quot;customerIds&quot;:[&quot;photon&quot;],&quot;used&quot;:false,&quot;id&quot;:&quot;8ca831b4-eda5-432b-a4f7-dc479342ce64&quot;,&quot;name&quot;:&quot;Cordova&quot;,&quot;description&quot;:&quot;Cordova is a free and open source framework that allows you to create mobile apps using standardized web APIs for the platforms you care about.&quot;,&quot;helpText&quot;:&quot;Cordova is a free and open source framework that allows you to create mobile apps using standardized web APIs.&quot;,&quot;creationDate&quot;:&quot;Jan 28, 2013 9:06:04 PM&quot;,&quot;system&quot;:true}]</selectedFeatures>
+        <deletedFeatures>[]</deletedFeatures>
+    </applicationHandler>
+</mojos>

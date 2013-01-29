@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite errors="0" failures="1" hostname="Administrators-Mac-mini-4.local" name="ApplicationTest" tests="2" time="0.0" timestamp="Mon Jan 28 14:57:54 +0530 2013"><testcase classname='ApplicationTest' name='testLogin' time='0.001'>
+<failure message='PLease enter email id and password' type='Failure'>/Users/dharani/Desktop/2.0-Builds/Beta-amazon/phresco-framework-5/workspace/projects/239-iphonenative/source/ApplicationTest/ApplicationTest.m:51</failure>
+</testcase>
+<testcase classname='ApplicationTest' name='testAppDelegate' time='0.0' />
+</testsuite>

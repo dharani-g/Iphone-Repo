@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>239-iphonenative - scan-build results</title>
+<link type="text/css" rel="stylesheet" href="scanview.css"/>
+<script src="sorttable.js"></script>
+<script language='javascript' type="text/javascript">
+function SetDisplay(RowClass, DisplayVal)
+{
+  var Rows = document.getElementsByTagName("tr");
+  for ( var i = 0 ; i < Rows.length; ++i ) {
+    if (Rows[i].className == RowClass) {
+      Rows[i].style.display = DisplayVal;
+    }
+  }
+}
+
+function CopyCheckedStateToCheckButtons(SummaryCheckButton) {
+  var Inputs = document.getElementsByTagName("input");
+  for ( var i = 0 ; i < Inputs.length; ++i ) {
+    if (Inputs[i].type == "checkbox") {
+      if(Inputs[i] != SummaryCheckButton) {
+        Inputs[i].checked = SummaryCheckButton.checked;
+        Inputs[i].onclick();
+	  }
+    }
+  }
+}
+
+function returnObjById( id ) {
+    if (document.getElementById) 
+        var returnVar = document.getElementById(id);
+    else if (document.all)
+        var returnVar = document.all[id];
+    else if (document.layers) 
+        var returnVar = document.layers[id];
+    return returnVar; 
+}
+
+var NumUnchecked = 0;
+
+function ToggleDisplay(CheckButton, ClassName) {
+  if (CheckButton.checked) {
+    SetDisplay(ClassName, "");
+    if (--NumUnchecked == 0) {
+      returnObjById("AllBugsCheck").checked = true;
+    }
+  }
+  else {
+    SetDisplay(ClassName, "none");
+    NumUnchecked++;
+    returnObjById("AllBugsCheck").checked = false;
+  }
+}
+</script>
+<!-- SUMMARYENDHEAD -->
+</head>
+<body>
+<h1>239-iphonenative - scan-build results</h1>
+
+<table>
+<tr><th>User:</th><td>dharani@Administrators-Mac-mini-4.local</td></tr>
+<tr><th>Working Directory:</th><td>/Users/dharani/Desktop/2.0-Builds/Beta-amazon/phresco-framework-5/workspace/projects/239-iphonenative</td></tr>
+<tr><th>Command Line:</th><td>xcodebuild -target Phresco -project ./source/Phresco.xcodeproj -configuration Debug -sdk iphonesimulator6.0 build OBJROOT=/Users/dharani/Desktop/2.0-Builds/Beta-amazon/phresco-framework-5/workspace/projects/239-iphonenative/do_not_checkin/target SYMROOT=/Users/dharani/Desktop/2.0-Builds/Beta-amazon/phresco-framework-5/workspace/projects/239-iphonenative/do_not_checkin/target DSTROOT=/Users/dharani/Desktop/2.0-Builds/Beta-amazon/phresco-framework-5/workspace/projects/239-iphonenative/do_not_checkin/target</td></tr>
+<tr><th>Clang Version:</th><td>clang version 3.2 (tags/checker/checker-269)
+</td></tr>
+<tr><th>Date:</th><td>Mon Jan 28 14:39:05 2013</td></tr>
+<tr><th>Version:</th><td>checker-269 (2012-09-25 16:33:25)</td></tr>
+</table>
+<h2>Bug Summary</h2>
+<p>Results in this analysis run are based on analyzer build <b>checker-269</b>.</p>
+<table>
+<thead><tr><td>Bug Type</td><td>Quantity</td><td class="sorttable_nosort">Display?</td></tr></thead>
+<tr style="font-weight:bold"><td class="SUMM_DESC">All Bugs</td><td class="Q">5</td><td><center><input type="checkbox" id="AllBugsCheck" onClick="CopyCheckedStateToCheckButtons(this);" checked/></center></td></tr>
+<tr><th>Dead store</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Dead assignment</td><td class="Q">2</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_dead_store_dead_assignment');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Dead initialization</td><td class="Q">3</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_dead_store_dead_initialization');" checked/></center></td></tr>
+</table>
+<h2>Reports</h2>
+
+<table class="sortable" style="table-layout:automatic">
+<thead><tr>
+  <td>Bug Group</td>
+  <td class="sorttable_sorted">Bug Type<span id="sorttable_sortfwdind">&nbsp;&#x25BE;</span></td>
+  <td>File</td>
+  <td class="Q">Line</td>
+  <td class="Q">Path Length</td>
+  <td class="sorttable_nosort"></td>
+  <!-- REPORTBUGCOL -->
+</tr></thead>
+<tbody>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>NativeController<span class="W"> </span>/ProductDetails<span class="W"> </span>/ProductDetailsViewController.m</td><td class="Q">818</td><td class="Q">1</td><td><a href="report-5EDfT3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5EDfT3.html" -->
+</tr>
+<tr class="bt_dead_store_dead_assignment"><td class="DESC">Dead store</td><td class="DESC">Dead assignment</td><td>NativeController<span class="W"> </span>/ProductDetails<span class="W"> </span>/ProductDetailsViewController.m</td><td class="Q">892</td><td class="Q">1</td><td><a href="report-rRgmjm.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-rRgmjm.html" -->
+</tr>
+<tr class="bt_dead_store_dead_initialization"><td class="DESC">Dead store</td><td class="DESC">Dead initialization</td><td>NativeController<span class="W"> </span>/ReviewView<span class="W"> </span>/ReviewViewController.m</td><td class="Q">736</td><td class="Q">1</td><td><a href="report-75dOMX.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-75dOMX.html" -->
+</tr>
+<tr class="bt_dead_store_dead_initialization"><td class="DESC">Dead store</td><td class="DESC">Dead initialization</td><td>Network<span class="W"> </span>/ConnectionManager.m</td><td class="Q">110</td><td class="Q">1</td><td><a href="report-AJlYFA.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-AJlYFA.html" -->
+</tr>
+<tr class="bt_dead_store_dead_initialization"><td class="DESC">Dead store</td><td class="DESC">Dead initialization</td><td>DataLayer<span class="W"> </span>/DataModelEntities.m</td><td class="Q">407</td><td class="Q">1</td><td><a href="report-c02OP4.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c02OP4.html" -->
+</tr>
+</tbody>
+</table>
+
+</body></html>

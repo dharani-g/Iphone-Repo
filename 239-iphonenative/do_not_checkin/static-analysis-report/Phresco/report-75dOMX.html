@@ -1,0 +1,1055 @@
+<!doctype html>
+<html>
+<head>
+<title>/Users/dharani/Desktop/2.0-Builds/Beta-amazon/phresco-framework-5/workspace/projects/239-iphonenative/source/NativeController/ReviewView/ReviewViewController.m</title>
+<style type="text/css">
+ body { color:#000000; background-color:#ffffff }
+ body { font-family:Helvetica, sans-serif; font-size:10pt }
+ h1 { font-size:14pt }
+ .code { border-collapse:collapse; width:100%; }
+ .code { font-family: "Monospace", monospace; font-size:10pt }
+ .code { line-height: 1.2em }
+ .comment { color: green; font-style: oblique }
+ .keyword { color: blue }
+ .string_literal { color: red }
+ .directive { color: darkmagenta }
+ .expansion { display: none; }
+ .macro:hover .expansion { display: block; border: 2px solid #FF0000; padding: 2px; background-color:#FFF0F0; font-weight: normal;   -webkit-border-radius:5px;  -webkit-box-shadow:1px 1px 7px #000; position: absolute; top: -1em; left:10em; z-index: 1 } 
+ .macro { color: darkmagenta; background-color:LemonChiffon; position: relative }
+ .num { width:2.5em; padding-right:2ex; background-color:#eeeeee }
+ .num { text-align:right; font-size:8pt }
+ .num { color:#444444 }
+ .line { padding-left: 1ex; border-left: 3px solid #ccc }
+ .line { white-space: pre }
+ .msg { -webkit-box-shadow:1px 1px 7px #000 }
+ .msg { -webkit-border-radius:5px }
+ .msg { font-family:Helvetica, sans-serif; font-size:8pt }
+ .msg { float:left }
+ .msg { padding:0.25em 1ex 0.25em 1ex }
+ .msg { margin-top:10px; margin-bottom:10px }
+ .msg { font-weight:bold }
+ .msg { max-width:60em; word-wrap: break-word; white-space: pre-wrap }
+ .msgT { padding:0x; spacing:0x }
+ .msgEvent { background-color:#fff8b4; color:#000000 }
+ .msgControl { background-color:#bbbbbb; color:#000000 }
+ .mrange { background-color:#dfddf3 }
+ .mrange { border-bottom:1px solid #6F9DBE }
+ .PathIndex { font-weight: bold; padding:0px 5px; margin-right:5px; }
+ .PathIndex { -webkit-border-radius:8px }
+ .PathIndexEvent { background-color:#bfba87 }
+ .PathIndexControl { background-color:#8c8c8c }
+ .PathNav a { text-decoration:none; font-size: larger }
+ .CodeInsertionHint { font-weight: bold; background-color: #10dd10 }
+ .CodeRemovalHint { background-color:#de1010 }
+ .CodeRemovalHint { border-bottom:1px solid #6F9DBE }
+ table.simpletable {
+   padding: 5px;
+   font-size:12pt;
+   margin:20px;
+   border-collapse: collapse; border-spacing: 0px;
+ }
+ td.rowname {
+   text-align:right; font-weight:bold; color:#444444;
+   padding-right:2ex; }
+</style>
+</head>
+<body>
+<!-- BUGDESC Value stored to 'imageFramesArray' during its initialization is never read -->
+
+<!-- BUGTYPE Dead initialization -->
+
+<!-- BUGCATEGORY Dead store -->
+
+<!-- BUGFILE /Users/dharani/Desktop/2.0-Builds/Beta-amazon/phresco-framework-5/workspace/projects/239-iphonenative/source/NativeController/ReviewView/ReviewViewController.m -->
+
+<!-- BUGLINE 736 -->
+
+<!-- BUGPATHLENGTH 1 -->
+
+<!-- BUGMETAEND -->
+<!-- REPORTHEADER -->
+<h3>Bug Summary</h3>
+<table class="simpletable">
+<tr><td class="rowname">File:</td><td>NativeController/ReviewView/ReviewViewController.m</td></tr>
+<tr><td class="rowname">Location:</td><td><a href="#EndPath">line 736, column 25</a></td></tr>
+<tr><td class="rowname">Description:</td><td>Value stored to 'imageFramesArray' during its initialization is never read</td></tr>
+</table>
+<!-- REPORTSUMMARYEXTRA -->
+<h3>Annotated Source Code</h3>
+<table class="code">
+<tr><td class="num" id="LN1">1</td><td class="line"><span class='comment'>//</span></td></tr>
+<tr><td class="num" id="LN2">2</td><td class="line"><span class='comment'>//  ReviewViewController.m</span></td></tr>
+<tr><td class="num" id="LN3">3</td><td class="line"><span class='comment'>//  Phresco</span></td></tr>
+<tr><td class="num" id="LN4">4</td><td class="line"><span class='comment'>//</span></td></tr>
+<tr><td class="num" id="LN5">5</td><td class="line"><span class='comment'>//  Created by Rojaramani on 11/10/12.</span></td></tr>
+<tr><td class="num" id="LN6">6</td><td class="line"><span class='comment'>//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.</span></td></tr>
+<tr><td class="num" id="LN7">7</td><td class="line"><span class='comment'>//</span></td></tr>
+<tr><td class="num" id="LN8">8</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN9">9</td><td class="line"><span class='directive'>#import "ReviewViewController.h"</span></td></tr>
+<tr><td class="num" id="LN10">10</td><td class="line"><span class='directive'>#import "ReviewCustomCell.h"</span></td></tr>
+<tr><td class="num" id="LN11">11</td><td class="line"><span class='directive'>#import "AsyncImageView.h"</span></td></tr>
+<tr><td class="num" id="LN12">12</td><td class="line"><span class='directive'>#import "SharedObjects.h"</span></td></tr>
+<tr><td class="num" id="LN13">13</td><td class="line"><span class='directive'>#import "DataModelEntities.h"</span></td></tr>
+<tr><td class="num" id="LN14">14</td><td class="line"><span class='directive'>#import "AddToBagViewController.h"</span></td></tr>
+<tr><td class="num" id="LN15">15</td><td class="line"><span class='directive'>#import "SubmitReviewViewController.h"</span></td></tr>
+<tr><td class="num" id="LN16">16</td><td class="line"><span class='directive'>#import "ServiceHandler.h"</span></td></tr>
+<tr><td class="num" id="LN17">17</td><td class="line"><span class='directive'>#import "SpecialOffersViewController.h"</span></td></tr>
+<tr><td class="num" id="LN18">18</td><td class="line"><span class='directive'>#import "ReviewCommentsViewController.h"</span></td></tr>
+<tr><td class="num" id="LN19">19</td><td class="line"><span class='directive'>#import "ProductDetailsViewController.h"</span></td></tr>
+<tr><td class="num" id="LN20">20</td><td class="line"><span class='directive'>#import "Tabbar.h"</span></td></tr>
+<tr><td class="num" id="LN21">21</td><td class="line"><span class='directive'>#import "ReviewCustomCell.h"</span></td></tr>
+<tr><td class="num" id="LN22">22</td><td class="line"><span class='directive'>#import "LoginViewController.h"</span></td></tr>
+<tr><td class="num" id="LN23">23</td><td class="line">@interface ReviewViewController ()</td></tr>
+<tr><td class="num" id="LN24">24</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN25">25</td><td class="line">@end</td></tr>
+<tr><td class="num" id="LN26">26</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN27">27</td><td class="line">@implementation ReviewViewController</td></tr>
+<tr><td class="num" id="LN28">28</td><td class="line">@synthesize addToBagViewController;</td></tr>
+<tr><td class="num" id="LN29">29</td><td class="line">@synthesize submitReviewViewController;</td></tr>
+<tr><td class="num" id="LN30">30</td><td class="line">@synthesize specialOffersViewController;</td></tr>
+<tr><td class="num" id="LN31">31</td><td class="line">@synthesize reviewCommentsViewController;</td></tr>
+<tr><td class="num" id="LN32">32</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN33">33</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN34">34</td><td class="line">@synthesize reviewTableView;</td></tr>
+<tr><td class="num" id="LN35">35</td><td class="line">@synthesize reviewTextview;</td></tr>
+<tr><td class="num" id="LN36">36</td><td class="line">@synthesize commentArray;</td></tr>
+<tr><td class="num" id="LN37">37</td><td class="line">@synthesize averageArray;</td></tr>
+<tr><td class="num" id="LN38">38</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN39">39</td><td class="line">@synthesize oneStar;</td></tr>
+<tr><td class="num" id="LN40">40</td><td class="line">@synthesize twoStar;</td></tr>
+<tr><td class="num" id="LN41">41</td><td class="line">@synthesize threeStar;</td></tr>
+<tr><td class="num" id="LN42">42</td><td class="line">@synthesize fourStar;</td></tr>
+<tr><td class="num" id="LN43">43</td><td class="line">@synthesize fiveStar;</td></tr>
+<tr><td class="num" id="LN44">44</td><td class="line">@synthesize average;</td></tr>
+<tr><td class="num" id="LN45">45</td><td class="line">@synthesize submitReview;</td></tr>
+<tr><td class="num" id="LN46">46</td><td class="line">@synthesize loginViewController;</td></tr>
+<tr><td class="num" id="LN47">47</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN48">48</td><td class="line">@synthesize isSpecialOffer;</td></tr>
+<tr><td class="num" id="LN49">49</td><td class="line">@synthesize loginChk;</td></tr>
+<tr><td class="num" id="LN50">50</td><td class="line">@synthesize reviewProductId;</td></tr>
+<tr><td class="num" id="LN51">51</td><td class="line">@synthesize array_;</td></tr>
+<tr><td class="num" id="LN52">52</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN53">53</td><td class="line">- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil</td></tr>
+<tr><td class="num" id="LN54">54</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN55">55</td><td class="line">    <span class='keyword'>if</span>(<span class='macro'>UI_USER_INTERFACE_IDIOM()<span class='expansion'>([[UIDevice currentDevice] respondsToSelector:@selector(userInterfaceIdiom<br>)] ? [[UIDevice currentDevice] userInterfaceIdiom] : UIUserInterfaceIdiomPhone<br>)</span></span> == UIUserInterfaceIdiomPad)</td></tr>
+<tr><td class="num" id="LN56">56</td><td class="line">	{</td></tr>
+<tr><td class="num" id="LN57">57</td><td class="line">		NSLog(@<span class='string_literal'>"iPad...."</span>);</td></tr>
+<tr><td class="num" id="LN58">58</td><td class="line">		self = [super initWithNibName:@<span class='string_literal'>"ReviewViewController-iPAd"</span> bundle:<span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN59">59</td><td class="line">		</td></tr>
+<tr><td class="num" id="LN60">60</td><td class="line">	}</td></tr>
+<tr><td class="num" id="LN61">61</td><td class="line">	<span class='keyword'>else</span> </td></tr>
+<tr><td class="num" id="LN62">62</td><td class="line">    {</td></tr>
+<tr><td class="num" id="LN63">63</td><td class="line">        NSLog(@<span class='string_literal'>"iPhone...."</span>);</td></tr>
+<tr><td class="num" id="LN64">64</td><td class="line">        self = [super initWithNibName:@<span class='string_literal'>"ReviewViewController"</span> bundle:<span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN65">65</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN66">66</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN67">67</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN68">68</td><td class="line">    <span class='keyword'>return</span> self;</td></tr>
+<tr><td class="num" id="LN69">69</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN70">70</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN71">71</td><td class="line">- (<span class='keyword'>void</span>)viewDidLoad</td></tr>
+<tr><td class="num" id="LN72">72</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN73">73</td><td class="line">    [super viewDidLoad];</td></tr>
+<tr><td class="num" id="LN74">74</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN75">75</td><td class="line">    self.title =@<span class='string_literal'>"CustomerReview"</span>;</td></tr>
+<tr><td class="num" id="LN76">76</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN77">77</td><td class="line">    AssetsDataEntity *assetsData = [SharedObjects sharedInstance].assetsDataEntity;</td></tr>
+<tr><td class="num" id="LN78">78</td><td class="line">    stringAverage = [[assetsData.productReviewArray objectAtIndex:([assetsData.productReviewArray count]-1)]averageCustomerReview];</td></tr>
+<tr><td class="num" id="LN79">79</td><td class="line">    [assetsData.productReviewArray removeObjectAtIndex:([assetsData.productReviewArray count]-1)];</td></tr>
+<tr><td class="num" id="LN80">80</td><td class="line">    NSLog(@<span class='string_literal'>"pdtDetailView:%d"</span>,[assetsData.productReviewArray  count]);</td></tr>
+<tr><td class="num" id="LN81">81</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN82">82</td><td class="line">    array_ = [[NSMutableArray alloc] init];</td></tr>
+<tr><td class="num" id="LN83">83</td><td class="line">    <span class='keyword'>if</span>(<span class='macro'>UI_USER_INTERFACE_IDIOM()<span class='expansion'>([[UIDevice currentDevice] respondsToSelector:@selector(userInterfaceIdiom<br>)] ? [[UIDevice currentDevice] userInterfaceIdiom] : UIUserInterfaceIdiomPhone<br>)</span></span> == UIUserInterfaceIdiomPad) {</td></tr>
+<tr><td class="num" id="LN84">84</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN85">85</td><td class="line">        tabbar = [[Tabbar alloc] initWithFrame:CGRectMake(0, 935, 768, 99)];</td></tr>
+<tr><td class="num" id="LN86">86</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN87">87</td><td class="line">    <span class='keyword'>else</span> {</td></tr>
+<tr><td class="num" id="LN88">88</td><td class="line">        tabbar = [[Tabbar alloc] initWithFrame:<span class='macro'>kTabbarRect<span class='expansion'>CGRectMake(0, 413, 320, 49)</span></span>];</td></tr>
+<tr><td class="num" id="LN89">89</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN90">90</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN91">91</td><td class="line">    NSMutableArray *names = [NSMutableArray array];</td></tr>
+<tr><td class="num" id="LN92">92</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN93">93</td><td class="line">    <span class='keyword'>int</span> startIndex = 0;</td></tr>
+<tr><td class="num" id="LN94">94</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN95">95</td><td class="line">    <span class='keyword'>int</span> lastIndex = 4;</td></tr>
+<tr><td class="num" id="LN96">96</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN97">97</td><td class="line">    <span class='keyword'>for</span>(<span class='keyword'>int</span> i = startIndex; i &lt;= lastIndex; i++) {</td></tr>
+<tr><td class="num" id="LN98">98</td><td class="line">        [names addObject:[assetsData.featureLayout objectAtIndex:i]];</td></tr>
+<tr><td class="num" id="LN99">99</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN100">100</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN101">101</td><td class="line">    <span class='comment'>//create tabbar with given features</span></td></tr>
+<tr><td class="num" id="LN102">102</td><td class="line">    [tabbar initWithInfo:names];</td></tr>
+<tr><td class="num" id="LN103">103</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN104">104</td><td class="line">    [self.view addSubview:(UIView*)tabbar];</td></tr>
+<tr><td class="num" id="LN105">105</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN106">106</td><td class="line">    [tabbar setSelectedIndex:1 fromSender:<span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN107">107</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN108">108</td><td class="line">    [self loadNavigationBar];</td></tr>
+<tr><td class="num" id="LN109">109</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN110">110</td><td class="line">    [self initializeTableView];</td></tr>
+<tr><td class="num" id="LN111">111</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN112">112</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN113">113</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN114">114</td><td class="line"><span class='directive'>#pragma mark</span> </td></tr>
+<tr><td class="num" id="LN115">115</td><td class="line"><span class='directive'>#pragma mark Navigation methods</span></td></tr>
+<tr><td class="num" id="LN116">116</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN117">117</td><td class="line">-(<span class='keyword'>void</span>) loadNavigationBar</td></tr>
+<tr><td class="num" id="LN118">118</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN119">119</td><td class="line">    <span class='keyword'>if</span>(<span class='macro'>UI_USER_INTERFACE_IDIOM()<span class='expansion'>([[UIDevice currentDevice] respondsToSelector:@selector(userInterfaceIdiom<br>)] ? [[UIDevice currentDevice] userInterfaceIdiom] : UIUserInterfaceIdiomPhone<br>)</span></span> == UIUserInterfaceIdiomPad)</td></tr>
+<tr><td class="num" id="LN120">120</td><td class="line">	{</td></tr>
+<tr><td class="num" id="LN121">121</td><td class="line">        UIImageView *navBarView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 768, 90)];</td></tr>
+<tr><td class="num" id="LN122">122</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN123">123</td><td class="line">        [navBarView setImage:[UIImage imageNamed:@<span class='string_literal'>"header_logo-72.png"</span>]];</td></tr>
+<tr><td class="num" id="LN124">124</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN125">125</td><td class="line">        [self.view addSubview:navBarView];</td></tr>
+<tr><td class="num" id="LN126">126</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN127">127</td><td class="line">        navBarView = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN128">128</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN129">129</td><td class="line">        UIImageView    *bgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 91, 768, 845)];</td></tr>
+<tr><td class="num" id="LN130">130</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN131">131</td><td class="line">        [bgView setImage:[UIImage imageNamed:@<span class='string_literal'>"home_screen_bg-72.png"</span>]];</td></tr>
+<tr><td class="num" id="LN132">132</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN133">133</td><td class="line">        [self.view addSubview:bgView];</td></tr>
+<tr><td class="num" id="LN134">134</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN135">135</td><td class="line">        bgView = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN136">136</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN137">137</td><td class="line">        UIButton *backButton = [[UIButton alloc] init];</td></tr>
+<tr><td class="num" id="LN138">138</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN139">139</td><td class="line">        [backButton setFrame:CGRectMake(5, 15, 123, 60)];</td></tr>
+<tr><td class="num" id="LN140">140</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN141">141</td><td class="line">        [backButton setBackgroundImage:[UIImage imageNamed:@<span class='string_literal'>"back_btn-72.png"</span>] forState:UIControlStateNormal];</td></tr>
+<tr><td class="num" id="LN142">142</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN143">143</td><td class="line">        [backButton addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];</td></tr>
+<tr><td class="num" id="LN144">144</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN145">145</td><td class="line">        backButton.accessibilityLabel=@<span class='string_literal'>"Back"</span>;</td></tr>
+<tr><td class="num" id="LN146">146</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN147">147</td><td class="line">        [self.view addSubview:backButton];</td></tr>
+<tr><td class="num" id="LN148">148</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN149">149</td><td class="line">        backButton = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN150">150</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN151">151</td><td class="line">        UIImageView *searchBarView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 91 , 768, 60)];</td></tr>
+<tr><td class="num" id="LN152">152</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN153">153</td><td class="line">        [searchBarView setImage:[UIImage imageNamed:@<span class='string_literal'>"searchblock_bg-72.png"</span>]];</td></tr>
+<tr><td class="num" id="LN154">154</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN155">155</td><td class="line">        [self.view addSubview:searchBarView];</td></tr>
+<tr><td class="num" id="LN156">156</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN157">157</td><td class="line">        searchBarView = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN158">158</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN159">159</td><td class="line">        NSMutableArray *buttonArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@<span class='string_literal'>"browse_btn_highlighted-72.png"</span>], [UIImage imageNamed:@<span class='string_literal'>"specialoffers_btn_normal-72.png"</span>],</td></tr>
+<tr><td class="num" id="LN160">160</td><td class="line">                                       [UIImage imageNamed:@<span class='string_literal'>"mycart_btn_normal-72.png"</span>], </td></tr>
+<tr><td class="num" id="LN161">161</td><td class="line">                                       <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN162">162</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN163">163</td><td class="line">        <span class='keyword'>int</span> x  = 8;</td></tr>
+<tr><td class="num" id="LN164">164</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN165">165</td><td class="line">        <span class='keyword'>int</span> y = 92;</td></tr>
+<tr><td class="num" id="LN166">166</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN167">167</td><td class="line">        <span class='keyword'>int</span> width = 250;</td></tr>
+<tr><td class="num" id="LN168">168</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN169">169</td><td class="line">        <span class='keyword'>int</span> height = 55;</td></tr>
+<tr><td class="num" id="LN170">170</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN171">171</td><td class="line">        <span class='keyword'>for</span>(<span class='keyword'>int</span> i = 0; i&lt;[buttonArray count]; i++)</td></tr>
+<tr><td class="num" id="LN172">172</td><td class="line">        {</td></tr>
+<tr><td class="num" id="LN173">173</td><td class="line">            UIButton *button = [[UIButton alloc] init];</td></tr>
+<tr><td class="num" id="LN174">174</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN175">175</td><td class="line">            [button setFrame:CGRectMake(x, y, width, height)];</td></tr>
+<tr><td class="num" id="LN176">176</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN177">177</td><td class="line">            [button setBackgroundImage:[buttonArray objectAtIndex:i] forState:UIControlStateNormal];</td></tr>
+<tr><td class="num" id="LN178">178</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN179">179</td><td class="line">            [self.view addSubview:button];</td></tr>
+<tr><td class="num" id="LN180">180</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN181">181</td><td class="line">            x = x + 252;</td></tr>
+<tr><td class="num" id="LN182">182</td><td class="line">            <span class='keyword'>if</span>(i==1)</td></tr>
+<tr><td class="num" id="LN183">183</td><td class="line">            {</td></tr>
+<tr><td class="num" id="LN184">184</td><td class="line">                [button addTarget:self action:@selector(specialOfferButtonPressed:) forControlEvents:UIControlEventTouchUpInside];</td></tr>
+<tr><td class="num" id="LN185">185</td><td class="line">            }</td></tr>
+<tr><td class="num" id="LN186">186</td><td class="line">            <span class='keyword'>if</span>(i==2)</td></tr>
+<tr><td class="num" id="LN187">187</td><td class="line">            {</td></tr>
+<tr><td class="num" id="LN188">188</td><td class="line">                [button addTarget:self action:@selector(myCartButtonPressed:) forControlEvents:UIControlEventTouchUpInside];</td></tr>
+<tr><td class="num" id="LN189">189</td><td class="line">            }</td></tr>
+<tr><td class="num" id="LN190">190</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN191">191</td><td class="line">            button = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN192">192</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN193">193</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN194">194</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN195">195</td><td class="line">    <span class='keyword'>else</span> {</td></tr>
+<tr><td class="num" id="LN196">196</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN197">197</td><td class="line">        UIImageView *navBarView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];</td></tr>
+<tr><td class="num" id="LN198">198</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN199">199</td><td class="line">        [navBarView setImage:[UIImage imageNamed:@<span class='string_literal'>"header_logo.png"</span>]];</td></tr>
+<tr><td class="num" id="LN200">200</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN201">201</td><td class="line">        [self.view addSubview:navBarView];</td></tr>
+<tr><td class="num" id="LN202">202</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN203">203</td><td class="line">        navBarView = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN204">204</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN205">205</td><td class="line">        UIImageView    *bgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 41, 320, 375)];</td></tr>
+<tr><td class="num" id="LN206">206</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN207">207</td><td class="line">        [bgView setImage:[UIImage imageNamed:@<span class='string_literal'>"home_screen_bg.png"</span>]];</td></tr>
+<tr><td class="num" id="LN208">208</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN209">209</td><td class="line">        [self.view addSubview:bgView];</td></tr>
+<tr><td class="num" id="LN210">210</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN211">211</td><td class="line">        bgView = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN212">212</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN213">213</td><td class="line">        UIButton *backButton = [[UIButton alloc] init];</td></tr>
+<tr><td class="num" id="LN214">214</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN215">215</td><td class="line">        [backButton setFrame:CGRectMake(5, 5, 60, 30)];</td></tr>
+<tr><td class="num" id="LN216">216</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN217">217</td><td class="line">        [backButton setBackgroundImage:[UIImage imageNamed:@<span class='string_literal'>"back_btn.png"</span>] forState:UIControlStateNormal];</td></tr>
+<tr><td class="num" id="LN218">218</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN219">219</td><td class="line">        [backButton addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];</td></tr>
+<tr><td class="num" id="LN220">220</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN221">221</td><td class="line">        backButton.accessibilityLabel=@<span class='string_literal'>"Back"</span>;</td></tr>
+<tr><td class="num" id="LN222">222</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN223">223</td><td class="line">        [self.view addSubview:backButton];</td></tr>
+<tr><td class="num" id="LN224">224</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN225">225</td><td class="line">        backButton = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN226">226</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN227">227</td><td class="line">        UIImageView *searchBarView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40 , 320, 40)];</td></tr>
+<tr><td class="num" id="LN228">228</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN229">229</td><td class="line">        [searchBarView setImage:[UIImage imageNamed:@<span class='string_literal'>"searchblock_bg.png"</span>]];</td></tr>
+<tr><td class="num" id="LN230">230</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN231">231</td><td class="line">        [self.view addSubview:searchBarView];</td></tr>
+<tr><td class="num" id="LN232">232</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN233">233</td><td class="line">        searchBarView = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN234">234</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN235">235</td><td class="line">        NSMutableArray *buttonArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@<span class='string_literal'>"browse_btn_highlighted.png"</span>], [UIImage imageNamed:@<span class='string_literal'>"offers_btn_normal.png"</span>],</td></tr>
+<tr><td class="num" id="LN236">236</td><td class="line">                                       [UIImage imageNamed:@<span class='string_literal'>"mycart_btn_normal.png"</span>], </td></tr>
+<tr><td class="num" id="LN237">237</td><td class="line">                                       <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN238">238</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN239">239</td><td class="line">        <span class='keyword'>int</span> x  = 5;</td></tr>
+<tr><td class="num" id="LN240">240</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN241">241</td><td class="line">        <span class='keyword'>int</span> y = 42;</td></tr>
+<tr><td class="num" id="LN242">242</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN243">243</td><td class="line">        <span class='keyword'>int</span> width = 100;</td></tr>
+<tr><td class="num" id="LN244">244</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN245">245</td><td class="line">        <span class='keyword'>int</span> height = 35;</td></tr>
+<tr><td class="num" id="LN246">246</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN247">247</td><td class="line">        <span class='keyword'>for</span>(<span class='keyword'>int</span> i = 0; i&lt;[buttonArray count]; i++)</td></tr>
+<tr><td class="num" id="LN248">248</td><td class="line">        {</td></tr>
+<tr><td class="num" id="LN249">249</td><td class="line">            UIButton *button = [[UIButton alloc] init];</td></tr>
+<tr><td class="num" id="LN250">250</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN251">251</td><td class="line">            [button setFrame:CGRectMake(x, y, width, height)];</td></tr>
+<tr><td class="num" id="LN252">252</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN253">253</td><td class="line">            [button setBackgroundImage:[buttonArray objectAtIndex:i] forState:UIControlStateNormal];</td></tr>
+<tr><td class="num" id="LN254">254</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN255">255</td><td class="line">            [self.view addSubview:button];</td></tr>
+<tr><td class="num" id="LN256">256</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN257">257</td><td class="line">            x = x + 102;</td></tr>
+<tr><td class="num" id="LN258">258</td><td class="line">            <span class='keyword'>if</span>(i==1)</td></tr>
+<tr><td class="num" id="LN259">259</td><td class="line">            {</td></tr>
+<tr><td class="num" id="LN260">260</td><td class="line">                [button addTarget:self action:@selector(specialOfferButtonPressed:) forControlEvents:UIControlEventTouchUpInside];</td></tr>
+<tr><td class="num" id="LN261">261</td><td class="line">            }</td></tr>
+<tr><td class="num" id="LN262">262</td><td class="line">            <span class='keyword'>if</span>(i==2)</td></tr>
+<tr><td class="num" id="LN263">263</td><td class="line">            {</td></tr>
+<tr><td class="num" id="LN264">264</td><td class="line">                [button addTarget:self action:@selector(myCartButtonPressed:) forControlEvents:UIControlEventTouchUpInside];</td></tr>
+<tr><td class="num" id="LN265">265</td><td class="line">            }</td></tr>
+<tr><td class="num" id="LN266">266</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN267">267</td><td class="line">            button = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN268">268</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN269">269</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN270">270</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN271">271</td><td class="line">	</td></tr>
+<tr><td class="num" id="LN272">272</td><td class="line">   	</td></tr>
+<tr><td class="num" id="LN273">273</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN274">274</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN275">275</td><td class="line">-(<span class='keyword'>void</span>) initializeTableView</td></tr>
+<tr><td class="num" id="LN276">276</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN277">277</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN278">278</td><td class="line">	<span class='keyword'>if</span>(<span class='macro'>UI_USER_INTERFACE_IDIOM()<span class='expansion'>([[UIDevice currentDevice] respondsToSelector:@selector(userInterfaceIdiom<br>)] ? [[UIDevice currentDevice] userInterfaceIdiom] : UIUserInterfaceIdiomPhone<br>)</span></span> == UIUserInterfaceIdiomPad)</td></tr>
+<tr><td class="num" id="LN279">279</td><td class="line">	{</td></tr>
+<tr><td class="num" id="LN280">280</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN281">281</td><td class="line">        AssetsDataEntity *assetsData = [SharedObjects sharedInstance].assetsDataEntity;</td></tr>
+<tr><td class="num" id="LN282">282</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN283">283</td><td class="line">		reviewTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 500, 768, 200) style:UITableViewStylePlain];</td></tr>
+<tr><td class="num" id="LN284">284</td><td class="line">        reviewTableView.dataSource = self;</td></tr>
+<tr><td class="num" id="LN285">285</td><td class="line">        reviewTableView.delegate = self;</td></tr>
+<tr><td class="num" id="LN286">286</td><td class="line">        reviewTableView.backgroundColor = [UIColor colorWithRed:29.0/255.0 green:106.0/255.0 blue:150.0/255.0 alpha:1.0]; </td></tr>
+<tr><td class="num" id="LN287">287</td><td class="line">        [self.view addSubview:reviewTableView];</td></tr>
+<tr><td class="num" id="LN288">288</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN289">289</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN290">290</td><td class="line">        submitReview = [[UIButton alloc] init];</td></tr>
+<tr><td class="num" id="LN291">291</td><td class="line">        submitReview =[UIButton buttonWithType:UIButtonTypeCustom];</td></tr>
+<tr><td class="num" id="LN292">292</td><td class="line">        submitReview.frame = CGRectMake(250,785, 180,50);</td></tr>
+<tr><td class="num" id="LN293">293</td><td class="line">        [submitReview addTarget:self action:@selector(submitReviewButtonSelected:) forControlEvents:UIControlEventTouchUpInside];</td></tr>
+<tr><td class="num" id="LN294">294</td><td class="line">        [submitReview setBackgroundImage:[UIImage imageNamed:@<span class='string_literal'>"submitreview_btn.png"</span>] forState:UIControlStateNormal];</td></tr>
+<tr><td class="num" id="LN295">295</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN296">296</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN297">297</td><td class="line">        [self.view addSubview:submitReview];</td></tr>
+<tr><td class="num" id="LN298">298</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN299">299</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN300">300</td><td class="line">        <span class='keyword'>for</span>(<span class='keyword'>int</span> i = 0;i&lt;[assetsData.productReviewArray count]; i++)</td></tr>
+<tr><td class="num" id="LN301">301</td><td class="line">        {</td></tr>
+<tr><td class="num" id="LN302">302</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN303">303</td><td class="line">            <span class='comment'>//NSString* string = [NSString stringWithFormat:@"%@",[[assetsData.productReviewArray objectAtIndex:i] averageCustomerReview]];</span></td></tr>
+<tr><td class="num" id="LN304">304</td><td class="line">            <span class='comment'>//            NSLog(@"rating averageCustomerReview..... :%@",string);</span></td></tr>
+<tr><td class="num" id="LN305">305</td><td class="line">            [averageArray addObject:[[assetsData.productReviewArray objectAtIndex:i] averageCustomerReview]];</td></tr>
+<tr><td class="num" id="LN306">306</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN307">307</td><td class="line">            <span class='comment'>//string = nil;</span></td></tr>
+<tr><td class="num" id="LN308">308</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN309">309</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN310">310</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN311">311</td><td class="line">        reviewTextview = [[UITextView alloc] initWithFrame:CGRectMake(0, 201, 768, 290)];</td></tr>
+<tr><td class="num" id="LN312">312</td><td class="line">        reviewTextview.delegate = self;</td></tr>
+<tr><td class="num" id="LN313">313</td><td class="line">        reviewTextview.editable = <span class='macro'>NO<span class='expansion'>__objc_no</span></span>;</td></tr>
+<tr><td class="num" id="LN314">314</td><td class="line">        reviewTextview.backgroundColor = [UIColor whiteColor];</td></tr>
+<tr><td class="num" id="LN315">315</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN316">316</td><td class="line">        [self.view addSubview:reviewTextview];</td></tr>
+<tr><td class="num" id="LN317">317</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN318">318</td><td class="line">        UILabel  *customerLabel =[[UILabel alloc] initWithFrame:CGRectMake(0, 155, 768, 50)];</td></tr>
+<tr><td class="num" id="LN319">319</td><td class="line">        [customerLabel setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@<span class='string_literal'>"ProductList_top-72.png"</span>]]];</td></tr>
+<tr><td class="num" id="LN320">320</td><td class="line">        [customerLabel setFont:[UIFont fontWithName:@<span class='string_literal'>"Times New Roman-Regular"</span> size:28]];</td></tr>
+<tr><td class="num" id="LN321">321</td><td class="line">        [customerLabel setText:@<span class='string_literal'>" Customer Review"</span>];</td></tr>
+<tr><td class="num" id="LN322">322</td><td class="line">        customerLabel.textAlignment=UITextAlignmentCenter;</td></tr>
+<tr><td class="num" id="LN323">323</td><td class="line">        [customerLabel setTextColor:[UIColor whiteColor]];</td></tr>
+<tr><td class="num" id="LN324">324</td><td class="line">        [self.view addSubview:customerLabel];</td></tr>
+<tr><td class="num" id="LN325">325</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN326">326</td><td class="line">        average = [[UILabel alloc] initWithFrame:CGRectMake(0,0,768,45)];</td></tr>
+<tr><td class="num" id="LN327">327</td><td class="line">        [average setFont:[UIFont fontWithName:@<span class='string_literal'>"Times New Roman-Regular"</span> size:28]];</td></tr>
+<tr><td class="num" id="LN328">328</td><td class="line">        [average setTextColor:[UIColor colorWithRed:85/255 green:85/255 blue:75/255 alpha:1.0]];</td></tr>
+<tr><td class="num" id="LN329">329</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN330">330</td><td class="line">        [average setText:[NSString stringWithFormat:@<span class='string_literal'>"  Average customer review  \t(%@)"</span>,stringAverage]];</td></tr>
+<tr><td class="num" id="LN331">331</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN332">332</td><td class="line">        average.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@<span class='string_literal'>"customerreview_subheader.png"</span>]];</td></tr>
+<tr><td class="num" id="LN333">333</td><td class="line">        [reviewTextview  addSubview:average];</td></tr>
+<tr><td class="num" id="LN334">334</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN335">335</td><td class="line">        oneStar = [[UILabel alloc] initWithFrame:CGRectMake(20,200,50,30)];</td></tr>
+<tr><td class="num" id="LN336">336</td><td class="line">        [oneStar setText:@<span class='string_literal'>"1 star:"</span>];</td></tr>
+<tr><td class="num" id="LN337">337</td><td class="line">        [oneStar setFont:[UIFont fontWithName:@<span class='string_literal'>"Times New Roman-Regular"</span> size:30]];</td></tr>
+<tr><td class="num" id="LN338">338</td><td class="line">        [oneStar setTextColor:[UIColor blackColor]];</td></tr>
+<tr><td class="num" id="LN339">339</td><td class="line">        [reviewTextview addSubview:oneStar];</td></tr>
+<tr><td class="num" id="LN340">340</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN341">341</td><td class="line">        twoStar = [[UILabel alloc] initWithFrame:CGRectMake(20,165,50,30)];</td></tr>
+<tr><td class="num" id="LN342">342</td><td class="line">        [twoStar setText:@<span class='string_literal'>"2 star:"</span>];</td></tr>
+<tr><td class="num" id="LN343">343</td><td class="line">        [twoStar setFont:[UIFont fontWithName:@<span class='string_literal'>"Times New Roman-Regular"</span> size:30]];</td></tr>
+<tr><td class="num" id="LN344">344</td><td class="line">        [twoStar setTextColor:[UIColor blackColor]];</td></tr>
+<tr><td class="num" id="LN345">345</td><td class="line">        [reviewTextview addSubview:twoStar];</td></tr>
+<tr><td class="num" id="LN346">346</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN347">347</td><td class="line">        threeStar = [[UILabel alloc] initWithFrame:CGRectMake(20,130,50,30)];</td></tr>
+<tr><td class="num" id="LN348">348</td><td class="line">        [threeStar setText:@<span class='string_literal'>"3 star:"</span>];</td></tr>
+<tr><td class="num" id="LN349">349</td><td class="line">        [threeStar setFont:[UIFont fontWithName:@<span class='string_literal'>"Times New Roman-Regular"</span> size:30]];</td></tr>
+<tr><td class="num" id="LN350">350</td><td class="line">        [threeStar setTextColor:[UIColor blackColor]];</td></tr>
+<tr><td class="num" id="LN351">351</td><td class="line">        [reviewTextview addSubview:threeStar];</td></tr>
+<tr><td class="num" id="LN352">352</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN353">353</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN354">354</td><td class="line">        fourStar = [[UILabel alloc] initWithFrame:CGRectMake(20,95,50,30)];</td></tr>
+<tr><td class="num" id="LN355">355</td><td class="line">        [fourStar setText:@<span class='string_literal'>"4 star:"</span>];</td></tr>
+<tr><td class="num" id="LN356">356</td><td class="line">        [fourStar setFont:[UIFont fontWithName:@<span class='string_literal'>"Times New Roman-Regular"</span> size:30]];</td></tr>
+<tr><td class="num" id="LN357">357</td><td class="line">        [fourStar setTextColor:[UIColor blackColor]];</td></tr>
+<tr><td class="num" id="LN358">358</td><td class="line">        [reviewTextview addSubview:fourStar];</td></tr>
+<tr><td class="num" id="LN359">359</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN360">360</td><td class="line">        fiveStar = [[UILabel alloc] initWithFrame:CGRectMake(20,60,50,30)];</td></tr>
+<tr><td class="num" id="LN361">361</td><td class="line">        [fiveStar setText:@<span class='string_literal'>"5 star:"</span>];</td></tr>
+<tr><td class="num" id="LN362">362</td><td class="line">        [fiveStar setFont:[UIFont fontWithName:@<span class='string_literal'>"Times New Roman-Regular"</span> size:30]];</td></tr>
+<tr><td class="num" id="LN363">363</td><td class="line">        [fiveStar setTextColor:[UIColor blackColor]];</td></tr>
+<tr><td class="num" id="LN364">364</td><td class="line">        [reviewTextview addSubview:fiveStar];</td></tr>
+<tr><td class="num" id="LN365">365</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN366">366</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN367">367</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN368">368</td><td class="line">        <span class='keyword'>float</span> x = 110;</td></tr>
+<tr><td class="num" id="LN369">369</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN370">370</td><td class="line">        <span class='keyword'>float</span>  y =  60;</td></tr>
+<tr><td class="num" id="LN371">371</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN372">372</td><td class="line">        <span class='keyword'>float</span>  width = 400;</td></tr>
+<tr><td class="num" id="LN373">373</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN374">374</td><td class="line">        <span class='keyword'>float</span> height = 25;</td></tr>
+<tr><td class="num" id="LN375">375</td><td class="line">        NSMutableArray *imageUnPoll = [[NSMutableArray alloc]init];</td></tr>
+<tr><td class="num" id="LN376">376</td><td class="line">        <span class='keyword'>for</span>(<span class='keyword'>int</span> i = 0; i&lt;5;i++)</td></tr>
+<tr><td class="num" id="LN377">377</td><td class="line">        {</td></tr>
+<tr><td class="num" id="LN378">378</td><td class="line">            UIImageView *noRatings = [[UIImageView alloc]init];</td></tr>
+<tr><td class="num" id="LN379">379</td><td class="line">            noRatings.frame = CGRectMake(x,y,width,height);</td></tr>
+<tr><td class="num" id="LN380">380</td><td class="line">            [noRatings setImage:[UIImage imageNamed:@<span class='string_literal'>"unpoll_rating.png"</span>]];</td></tr>
+<tr><td class="num" id="LN381">381</td><td class="line">            y = y + 35;</td></tr>
+<tr><td class="num" id="LN382">382</td><td class="line">            [noRatings setTag:i];</td></tr>
+<tr><td class="num" id="LN383">383</td><td class="line">            [reviewTextview  addSubview:noRatings];</td></tr>
+<tr><td class="num" id="LN384">384</td><td class="line">            [imageUnPoll addObject:noRatings];</td></tr>
+<tr><td class="num" id="LN385">385</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN386">386</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN387">387</td><td class="line">        <span class='keyword'>float</span> yRate = 200;</td></tr>
+<tr><td class="num" id="LN388">388</td><td class="line">        <span class='keyword'>int</span> yWidth;</td></tr>
+<tr><td class="num" id="LN389">389</td><td class="line">        NSMutableArray *imagePoll = [[NSMutableArray alloc]init];</td></tr>
+<tr><td class="num" id="LN390">390</td><td class="line">        <span class='keyword'>for</span>(<span class='keyword'>int</span> i = 0; i&lt;[assetsData.keyValueArray  count];i++)</td></tr>
+<tr><td class="num" id="LN391">391</td><td class="line">        {</td></tr>
+<tr><td class="num" id="LN392">392</td><td class="line">            NSString *strValue = [[assetsData.keyValueArray objectAtIndex:i]objectForKey:@<span class='string_literal'>"value"</span>];</td></tr>
+<tr><td class="num" id="LN393">393</td><td class="line">            NSLog(@<span class='string_literal'>"strValue:%d"</span>,[strValue intValue]);</td></tr>
+<tr><td class="num" id="LN394">394</td><td class="line">            yWidth = [strValue intValue]*20;</td></tr>
+<tr><td class="num" id="LN395">395</td><td class="line">            UIImageView *myRatings = [[UIImageView alloc]init];</td></tr>
+<tr><td class="num" id="LN396">396</td><td class="line">            myRatings.frame = CGRectMake(x,yRate,yWidth,height);</td></tr>
+<tr><td class="num" id="LN397">397</td><td class="line">            [myRatings setImage:[UIImage imageNamed:@<span class='string_literal'>"poll_rating.png"</span>]];</td></tr>
+<tr><td class="num" id="LN398">398</td><td class="line">            yRate = yRate - 35;</td></tr>
+<tr><td class="num" id="LN399">399</td><td class="line">            [myRatings setTag:i];</td></tr>
+<tr><td class="num" id="LN400">400</td><td class="line">            [reviewTextview  addSubview:myRatings];</td></tr>
+<tr><td class="num" id="LN401">401</td><td class="line">            [imagePoll addObject:myRatings];</td></tr>
+<tr><td class="num" id="LN402">402</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN403">403</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN404">404</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN405">405</td><td class="line">	}</td></tr>
+<tr><td class="num" id="LN406">406</td><td class="line">    <span class='keyword'>else</span> {</td></tr>
+<tr><td class="num" id="LN407">407</td><td class="line">        reviewTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 271, 320, 100) style:UITableViewStylePlain];</td></tr>
+<tr><td class="num" id="LN408">408</td><td class="line">        reviewTableView.dataSource = self;</td></tr>
+<tr><td class="num" id="LN409">409</td><td class="line">        reviewTableView.delegate = self;</td></tr>
+<tr><td class="num" id="LN410">410</td><td class="line">        reviewTableView.backgroundColor = [UIColor colorWithRed:29.0/255.0 green:106.0/255.0 blue:150.0/255.0 alpha:1.0]; </td></tr>
+<tr><td class="num" id="LN411">411</td><td class="line">        [self.view addSubview:reviewTableView];</td></tr>
+<tr><td class="num" id="LN412">412</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN413">413</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN414">414</td><td class="line">        submitReview = [[UIButton alloc] init];</td></tr>
+<tr><td class="num" id="LN415">415</td><td class="line">        submitReview =[UIButton buttonWithType:UIButtonTypeCustom];</td></tr>
+<tr><td class="num" id="LN416">416</td><td class="line">        submitReview.frame = CGRectMake(110,reviewTableView.frame.origin.y + reviewTableView.frame.size.height + 5, 100,30);</td></tr>
+<tr><td class="num" id="LN417">417</td><td class="line">        [submitReview addTarget:self action:@selector(submitReviewButtonSelected:) forControlEvents:UIControlEventTouchUpInside];</td></tr>
+<tr><td class="num" id="LN418">418</td><td class="line">        [submitReview setBackgroundImage:[UIImage imageNamed:@<span class='string_literal'>"submitreview_btn.png"</span>] forState:UIControlStateNormal];</td></tr>
+<tr><td class="num" id="LN419">419</td><td class="line">        [self.view addSubview:submitReview];</td></tr>
+<tr><td class="num" id="LN420">420</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN421">421</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN422">422</td><td class="line">        AssetsDataEntity *assetsData = [SharedObjects sharedInstance].assetsDataEntity;</td></tr>
+<tr><td class="num" id="LN423">423</td><td class="line">        <span class='keyword'>for</span>(<span class='keyword'>int</span> i = 0;i&lt;[assetsData.productReviewArray count]; i++)</td></tr>
+<tr><td class="num" id="LN424">424</td><td class="line">        {</td></tr>
+<tr><td class="num" id="LN425">425</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN426">426</td><td class="line">            <span class='comment'>//NSString* string = [NSString stringWithFormat:@"%@",[[assetsData.productReviewArray objectAtIndex:i] averageCustomerReview]];</span></td></tr>
+<tr><td class="num" id="LN427">427</td><td class="line">            <span class='comment'>//            NSLog(@"rating averageCustomerReview..... :%@",string);</span></td></tr>
+<tr><td class="num" id="LN428">428</td><td class="line">           [averageArray addObject:[[assetsData.productReviewArray objectAtIndex:i] averageCustomerReview]];</td></tr>
+<tr><td class="num" id="LN429">429</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN430">430</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN431">431</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN432">432</td><td class="line">        reviewTextview = [[UITextView alloc] initWithFrame:CGRectMake(0, 110, 320, 160)];</td></tr>
+<tr><td class="num" id="LN433">433</td><td class="line">        reviewTextview.delegate = self;</td></tr>
+<tr><td class="num" id="LN434">434</td><td class="line">        reviewTextview.editable = <span class='macro'>NO<span class='expansion'>__objc_no</span></span>;</td></tr>
+<tr><td class="num" id="LN435">435</td><td class="line">        reviewTextview.backgroundColor = [UIColor whiteColor];</td></tr>
+<tr><td class="num" id="LN436">436</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN437">437</td><td class="line">        [self.view addSubview:reviewTextview];</td></tr>
+<tr><td class="num" id="LN438">438</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN439">439</td><td class="line">        UILabel* customerLabel =[[UILabel alloc] initWithFrame:CGRectMake(0,80,320,31)];</td></tr>
+<tr><td class="num" id="LN440">440</td><td class="line">        [customerLabel setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@<span class='string_literal'>"customerreview_header.png"</span>]]];</td></tr>
+<tr><td class="num" id="LN441">441</td><td class="line">        [customerLabel setTextColor:[UIColor whiteColor]];</td></tr>
+<tr><td class="num" id="LN442">442</td><td class="line">        [self.view addSubview:customerLabel];</td></tr>
+<tr><td class="num" id="LN443">443</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN444">444</td><td class="line">        average = [[UILabel alloc] initWithFrame:CGRectMake(0,0,320,25)];</td></tr>
+<tr><td class="num" id="LN445">445</td><td class="line">        [average setFont:[UIFont fontWithName:@<span class='string_literal'>"Times New Roman-Regular"</span> size:15]];</td></tr>
+<tr><td class="num" id="LN446">446</td><td class="line">        [average setTextColor:[UIColor colorWithRed:85/255 green:85/255 blue:75/255 alpha:1.0]];</td></tr>
+<tr><td class="num" id="LN447">447</td><td class="line">        [average setText:[NSString stringWithFormat:@<span class='string_literal'>"  Average customer review  \t(%@)"</span>,stringAverage]];</td></tr>
+<tr><td class="num" id="LN448">448</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN449">449</td><td class="line">        average.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@<span class='string_literal'>"customerreview_subheader.png"</span>]];</td></tr>
+<tr><td class="num" id="LN450">450</td><td class="line">        [reviewTextview  addSubview:average];</td></tr>
+<tr><td class="num" id="LN451">451</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN452">452</td><td class="line">        oneStar = [[UILabel alloc] initWithFrame:CGRectMake(10,130,50,20)];</td></tr>
+<tr><td class="num" id="LN453">453</td><td class="line">        [oneStar setText:@<span class='string_literal'>"1 star:"</span>];</td></tr>
+<tr><td class="num" id="LN454">454</td><td class="line">        [oneStar setFont:[UIFont fontWithName:@<span class='string_literal'>"Times New Roman-Regular"</span> size:15]];</td></tr>
+<tr><td class="num" id="LN455">455</td><td class="line">        [oneStar setTextColor:[UIColor blackColor]];</td></tr>
+<tr><td class="num" id="LN456">456</td><td class="line">        [reviewTextview addSubview:oneStar];</td></tr>
+<tr><td class="num" id="LN457">457</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN458">458</td><td class="line">        twoStar = [[UILabel alloc] initWithFrame:CGRectMake(10,105,50,20)];</td></tr>
+<tr><td class="num" id="LN459">459</td><td class="line">        [twoStar setText:@<span class='string_literal'>"2 star:"</span>];</td></tr>
+<tr><td class="num" id="LN460">460</td><td class="line">        [twoStar setFont:[UIFont fontWithName:@<span class='string_literal'>"Times New Roman-Regular"</span> size:15]];</td></tr>
+<tr><td class="num" id="LN461">461</td><td class="line">        [twoStar setTextColor:[UIColor blackColor]];</td></tr>
+<tr><td class="num" id="LN462">462</td><td class="line">        [reviewTextview addSubview:twoStar];</td></tr>
+<tr><td class="num" id="LN463">463</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN464">464</td><td class="line">        threeStar = [[UILabel alloc] initWithFrame:CGRectMake(10,80,50,20)];</td></tr>
+<tr><td class="num" id="LN465">465</td><td class="line">        [threeStar setText:@<span class='string_literal'>"3 star:"</span>];</td></tr>
+<tr><td class="num" id="LN466">466</td><td class="line">        [threeStar setFont:[UIFont fontWithName:@<span class='string_literal'>"Times New Roman-Regular"</span> size:15]];</td></tr>
+<tr><td class="num" id="LN467">467</td><td class="line">        [threeStar setTextColor:[UIColor blackColor]];</td></tr>
+<tr><td class="num" id="LN468">468</td><td class="line">        [reviewTextview addSubview:threeStar];</td></tr>
+<tr><td class="num" id="LN469">469</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN470">470</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN471">471</td><td class="line">        fourStar = [[UILabel alloc] initWithFrame:CGRectMake(10,55,50,20)];</td></tr>
+<tr><td class="num" id="LN472">472</td><td class="line">        [fourStar setText:@<span class='string_literal'>"4 star:"</span>];</td></tr>
+<tr><td class="num" id="LN473">473</td><td class="line">        [fourStar setFont:[UIFont fontWithName:@<span class='string_literal'>"Times New Roman-Regular"</span> size:15]];</td></tr>
+<tr><td class="num" id="LN474">474</td><td class="line">        [fourStar setTextColor:[UIColor blackColor]];</td></tr>
+<tr><td class="num" id="LN475">475</td><td class="line">        [reviewTextview addSubview:fourStar];</td></tr>
+<tr><td class="num" id="LN476">476</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN477">477</td><td class="line">        fiveStar = [[UILabel alloc] initWithFrame:CGRectMake(10,30,50,20)];</td></tr>
+<tr><td class="num" id="LN478">478</td><td class="line">        [fiveStar setText:@<span class='string_literal'>"5 star:"</span>];</td></tr>
+<tr><td class="num" id="LN479">479</td><td class="line">        [fiveStar setFont:[UIFont fontWithName:@<span class='string_literal'>"Times New Roman-Regular"</span> size:15]];</td></tr>
+<tr><td class="num" id="LN480">480</td><td class="line">        [fiveStar setTextColor:[UIColor blackColor]];</td></tr>
+<tr><td class="num" id="LN481">481</td><td class="line">        [reviewTextview addSubview:fiveStar];</td></tr>
+<tr><td class="num" id="LN482">482</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN483">483</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN484">484</td><td class="line">        <span class='keyword'>float</span> x = 70;</td></tr>
+<tr><td class="num" id="LN485">485</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN486">486</td><td class="line">        <span class='keyword'>float</span>  y =  30;</td></tr>
+<tr><td class="num" id="LN487">487</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN488">488</td><td class="line">        <span class='keyword'>float</span>  width = 200;</td></tr>
+<tr><td class="num" id="LN489">489</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN490">490</td><td class="line">        <span class='keyword'>float</span> height = 15;</td></tr>
+<tr><td class="num" id="LN491">491</td><td class="line">        NSMutableArray *imageUnPoll = [[NSMutableArray alloc]init];</td></tr>
+<tr><td class="num" id="LN492">492</td><td class="line">        <span class='keyword'>for</span>(<span class='keyword'>int</span> i = 0; i&lt;5;i++)</td></tr>
+<tr><td class="num" id="LN493">493</td><td class="line">        {</td></tr>
+<tr><td class="num" id="LN494">494</td><td class="line">            UIImageView *noRatings = [[UIImageView alloc]init];</td></tr>
+<tr><td class="num" id="LN495">495</td><td class="line">            noRatings.frame = CGRectMake(x,y,width,height);</td></tr>
+<tr><td class="num" id="LN496">496</td><td class="line">            [noRatings setImage:[UIImage imageNamed:@<span class='string_literal'>"unpoll_rating.png"</span>]];</td></tr>
+<tr><td class="num" id="LN497">497</td><td class="line">            y = y + 25;</td></tr>
+<tr><td class="num" id="LN498">498</td><td class="line">            [noRatings setTag:i];</td></tr>
+<tr><td class="num" id="LN499">499</td><td class="line">            [reviewTextview  addSubview:noRatings];</td></tr>
+<tr><td class="num" id="LN500">500</td><td class="line">            [imageUnPoll addObject:noRatings];</td></tr>
+<tr><td class="num" id="LN501">501</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN502">502</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN503">503</td><td class="line">        <span class='keyword'>float</span> yRate = 130;</td></tr>
+<tr><td class="num" id="LN504">504</td><td class="line">        <span class='keyword'>int</span> yWidth; </td></tr>
+<tr><td class="num" id="LN505">505</td><td class="line">        NSMutableArray *imagePoll = [[NSMutableArray alloc]init];</td></tr>
+<tr><td class="num" id="LN506">506</td><td class="line">        <span class='keyword'>for</span>(<span class='keyword'>int</span> i = 0; i&lt;[assetsData.keyValueArray  count];i++)</td></tr>
+<tr><td class="num" id="LN507">507</td><td class="line">        {</td></tr>
+<tr><td class="num" id="LN508">508</td><td class="line">            NSString *strValue = [[assetsData.keyValueArray objectAtIndex:i]objectForKey:@<span class='string_literal'>"value"</span>];</td></tr>
+<tr><td class="num" id="LN509">509</td><td class="line">            yWidth = [strValue intValue]*10;</td></tr>
+<tr><td class="num" id="LN510">510</td><td class="line">            UIImageView *myRatings = [[UIImageView alloc]init];</td></tr>
+<tr><td class="num" id="LN511">511</td><td class="line">            myRatings.frame = CGRectMake(x,yRate,yWidth,height);</td></tr>
+<tr><td class="num" id="LN512">512</td><td class="line">            [myRatings setImage:[UIImage imageNamed:@<span class='string_literal'>"poll_rating.png"</span>]];</td></tr>
+<tr><td class="num" id="LN513">513</td><td class="line">            yRate = yRate - 25;</td></tr>
+<tr><td class="num" id="LN514">514</td><td class="line">            [myRatings setTag:i];</td></tr>
+<tr><td class="num" id="LN515">515</td><td class="line">            [reviewTextview  addSubview:myRatings];</td></tr>
+<tr><td class="num" id="LN516">516</td><td class="line">            [imagePoll addObject:myRatings];</td></tr>
+<tr><td class="num" id="LN517">517</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN518">518</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN519">519</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN520">520</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN521">521</td><td class="line"><span class='directive'>#pragma mark TableView Delegates</span></td></tr>
+<tr><td class="num" id="LN522">522</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN523">523</td><td class="line">- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section</td></tr>
+<tr><td class="num" id="LN524">524</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN525">525</td><td class="line">	AssetsDataEntity *assestsDataOne = [SharedObjects sharedInstance].assetsDataEntity;</td></tr>
+<tr><td class="num" id="LN526">526</td><td class="line">    <span class='keyword'>return</span> [assestsDataOne.productReviewArray count];</td></tr>
+<tr><td class="num" id="LN527">527</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN528">528</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN529">529</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN530">530</td><td class="line">- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath</td></tr>
+<tr><td class="num" id="LN531">531</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN532">532</td><td class="line">    <span class='keyword'>if</span>(<span class='macro'>UI_USER_INTERFACE_IDIOM()<span class='expansion'>([[UIDevice currentDevice] respondsToSelector:@selector(userInterfaceIdiom<br>)] ? [[UIDevice currentDevice] userInterfaceIdiom] : UIUserInterfaceIdiomPhone<br>)</span></span> == UIUserInterfaceIdiomPad)</td></tr>
+<tr><td class="num" id="LN533">533</td><td class="line">	{</td></tr>
+<tr><td class="num" id="LN534">534</td><td class="line">        <span class='keyword'>return</span> 260;</td></tr>
+<tr><td class="num" id="LN535">535</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN536">536</td><td class="line">    <span class='keyword'>else</span> {</td></tr>
+<tr><td class="num" id="LN537">537</td><td class="line">        <span class='keyword'>return</span> 130;</td></tr>
+<tr><td class="num" id="LN538">538</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN539">539</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN540">540</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN541">541</td><td class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath</td></tr>
+<tr><td class="num" id="LN542">542</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN543">543</td><td class="line">	<span class='keyword'>static</span> NSString *CellIdentifier = @<span class='string_literal'>"ReviewCell"</span>;</td></tr>
+<tr><td class="num" id="LN544">544</td><td class="line">    AssetsDataEntity *assestsData = [SharedObjects sharedInstance].assetsDataEntity;</td></tr>
+<tr><td class="num" id="LN545">545</td><td class="line">	ReviewCustomCell *cell = (ReviewCustomCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];</td></tr>
+<tr><td class="num" id="LN546">546</td><td class="line">	</td></tr>
+<tr><td class="num" id="LN547">547</td><td class="line">	<span class='keyword'>if</span> (cell == <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>) {</td></tr>
+<tr><td class="num" id="LN548">548</td><td class="line">        cell = [[ReviewCustomCell alloc]</td></tr>
+<tr><td class="num" id="LN549">549</td><td class="line">                initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];</td></tr>
+<tr><td class="num" id="LN550">550</td><td class="line">				</td></tr>
+<tr><td class="num" id="LN551">551</td><td class="line">        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;</td></tr>
+<tr><td class="num" id="LN552">552</td><td class="line">        cell.textLabel.numberOfLines = 2;</td></tr>
+<tr><td class="num" id="LN553">553</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN554">554</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN555">555</td><td class="line">   	cell.selectionStyle = UITableViewCellSelectionStyleNone;</td></tr>
+<tr><td class="num" id="LN556">556</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN557">557</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN558">558</td><td class="line"><span class='comment'>//    NSString *strType = [NSString stringWithFormat:@"%@",[[assestsData.reviewDictionary objectAtIndex:indexPath.row]userComments]];</span></td></tr>
+<tr><td class="num" id="LN559">559</td><td class="line"><span class='comment'>//    NSLog(@"userComments :%@", strType);</span></td></tr>
+<tr><td class="num" id="LN560">560</td><td class="line"><span class='comment'>//    </span></td></tr>
+<tr><td class="num" id="LN561">561</td><td class="line"><span class='comment'>//    NSString* averageValue = [NSString stringWithFormat:@"  Average customer review  (%@)",[[assestsData.productReviewArray objectAtIndex:indexPath.row] averageCustomerReview]];</span></td></tr>
+<tr><td class="num" id="LN562">562</td><td class="line"><span class='comment'>//</span></td></tr>
+<tr><td class="num" id="LN563">563</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN564">564</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN565">565</td><td class="line">   <span class='comment'>//[[cell commentsLabel] setText:[[assestsData.reviewDictionary objectAtIndex:indexPath.row]userComments]];</span></td></tr>
+<tr><td class="num" id="LN566">566</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN567">567</td><td class="line">    <span class='comment'>//[[cell commentsLabel] setText: strType];</span></td></tr>
+<tr><td class="num" id="LN568">568</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN569">569</td><td class="line">    [[cell disImage] setImage:[UIImage imageNamed:@<span class='string_literal'>"nav_arrow.png"</span>]];</td></tr>
+<tr><td class="num" id="LN570">570</td><td class="line"><span class='comment'>//    </span></td></tr>
+<tr><td class="num" id="LN571">571</td><td class="line">    NSString* string = [NSString stringWithFormat:@<span class='string_literal'>"%@"</span>,[[assestsData.productReviewArray objectAtIndex:indexPath.row] productRatingView]];</td></tr>
+<tr><td class="num" id="LN572">572</td><td class="line"><span class='comment'>//</span></td></tr>
+<tr><td class="num" id="LN573">573</td><td class="line"><span class='comment'>//    NSString* user = [[[assestsData.productReviewArray objectAtIndex:indexPath.row] userName]description];</span></td></tr>
+<tr><td class="num" id="LN574">574</td><td class="line"><span class='comment'>//    </span></td></tr>
+<tr><td class="num" id="LN575">575</td><td class="line"><span class='comment'>//    [[cell userNameLabel] setText:user];</span></td></tr>
+<tr><td class="num" id="LN576">576</td><td class="line"><span class='comment'>//</span></td></tr>
+<tr><td class="num" id="LN577">577</td><td class="line"><span class='comment'>//    NSString* date = [NSString stringWithFormat:@"%@",[[assestsData.productReviewArray objectAtIndex:indexPath.row] commentedDate]];</span></td></tr>
+<tr><td class="num" id="LN578">578</td><td class="line"><span class='comment'>//    </span></td></tr>
+<tr><td class="num" id="LN579">579</td><td class="line"><span class='comment'>//    [[cell dateLabel] setText:date];</span></td></tr>
+<tr><td class="num" id="LN580">580</td><td class="line"><span class='comment'>//    </span></td></tr>
+<tr><td class="num" id="LN581">581</td><td class="line"><span class='comment'>//    NSInteger tagValue = (NSInteger)[[assestsData.productReviewArray objectAtIndex:indexPath.row] productDetailId];</span></td></tr>
+<tr><td class="num" id="LN582">582</td><td class="line"><span class='comment'>//    [submitReview setTag:tagValue];</span></td></tr>
+<tr><td class="num" id="LN583">583</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN584">584</td><td class="line">    <span class='keyword'>if</span>(<span class='macro'>UI_USER_INTERFACE_IDIOM()<span class='expansion'>([[UIDevice currentDevice] respondsToSelector:@selector(userInterfaceIdiom<br>)] ? [[UIDevice currentDevice] userInterfaceIdiom] : UIUserInterfaceIdiomPhone<br>)</span></span> == UIUserInterfaceIdiomPad)</td></tr>
+<tr><td class="num" id="LN585">585</td><td class="line">	{</td></tr>
+<tr><td class="num" id="LN586">586</td><td class="line"><span class='comment'>//        float x = 20;</span></td></tr>
+<tr><td class="num" id="LN587">587</td><td class="line"><span class='comment'>//        </span></td></tr>
+<tr><td class="num" id="LN588">588</td><td class="line"><span class='comment'>//        float  y =  5;</span></td></tr>
+<tr><td class="num" id="LN589">589</td><td class="line"><span class='comment'>//        </span></td></tr>
+<tr><td class="num" id="LN590">590</td><td class="line"><span class='comment'>//        float  width = 25;</span></td></tr>
+<tr><td class="num" id="LN591">591</td><td class="line"><span class='comment'>//        </span></td></tr>
+<tr><td class="num" id="LN592">592</td><td class="line"><span class='comment'>//        float height = 25;</span></td></tr>
+<tr><td class="num" id="LN593">593</td><td class="line"><span class='comment'>//        </span></td></tr>
+<tr><td class="num" id="LN594">594</td><td class="line"><span class='comment'>//        NSMutableArray *imageFramesWhiteArray = [[NSMutableArray alloc]init];</span></td></tr>
+<tr><td class="num" id="LN595">595</td><td class="line"><span class='comment'>//        for(int i = 0; i&lt;5;i++)</span></td></tr>
+<tr><td class="num" id="LN596">596</td><td class="line"><span class='comment'>//        {</span></td></tr>
+<tr><td class="num" id="LN597">597</td><td class="line"><span class='comment'>//            UIImageView *ratingsView = [[UIImageView alloc]init];</span></td></tr>
+<tr><td class="num" id="LN598">598</td><td class="line"><span class='comment'>//            ratingsView.frame = CGRectMake(x,y,width,height);</span></td></tr>
+<tr><td class="num" id="LN599">599</td><td class="line"><span class='comment'>//            [ratingsView setImage:[UIImage imageNamed:@"white_star.png"]];</span></td></tr>
+<tr><td class="num" id="LN600">600</td><td class="line"><span class='comment'>//            x = x + 25;</span></td></tr>
+<tr><td class="num" id="LN601">601</td><td class="line"><span class='comment'>//            [ratingsView setTag:i];</span></td></tr>
+<tr><td class="num" id="LN602">602</td><td class="line"><span class='comment'>//            [cell.contentView  addSubview:ratingsView];</span></td></tr>
+<tr><td class="num" id="LN603">603</td><td class="line"><span class='comment'>//            [imageFramesWhiteArray addObject:ratingsView];</span></td></tr>
+<tr><td class="num" id="LN604">604</td><td class="line"><span class='comment'>//        }</span></td></tr>
+<tr><td class="num" id="LN605">605</td><td class="line"><span class='comment'>//        </span></td></tr>
+<tr><td class="num" id="LN606">606</td><td class="line"><span class='comment'>//        float xBlue = 20;</span></td></tr>
+<tr><td class="num" id="LN607">607</td><td class="line"><span class='comment'>//        NSMutableArray *imageFramesArray = [[NSMutableArray alloc]init];</span></td></tr>
+<tr><td class="num" id="LN608">608</td><td class="line"><span class='comment'>//        for(int i = 0; i&lt;[string intValue];i++)</span></td></tr>
+<tr><td class="num" id="LN609">609</td><td class="line"><span class='comment'>//        {</span></td></tr>
+<tr><td class="num" id="LN610">610</td><td class="line"><span class='comment'>//            UIImageView *ratingsView = [[UIImageView alloc]init];</span></td></tr>
+<tr><td class="num" id="LN611">611</td><td class="line"><span class='comment'>//            ratingsView.frame = CGRectMake(xBlue,y,width,height);</span></td></tr>
+<tr><td class="num" id="LN612">612</td><td class="line"><span class='comment'>//            [ratingsView setImage:[UIImage imageNamed:@"blue_star.png"]];</span></td></tr>
+<tr><td class="num" id="LN613">613</td><td class="line"><span class='comment'>//            xBlue = xBlue + 25;</span></td></tr>
+<tr><td class="num" id="LN614">614</td><td class="line"><span class='comment'>//            [ratingsView setTag:i];</span></td></tr>
+<tr><td class="num" id="LN615">615</td><td class="line"><span class='comment'>//            [cell.contentView  addSubview:ratingsView];</span></td></tr>
+<tr><td class="num" id="LN616">616</td><td class="line"><span class='comment'>//            [imageFramesArray addObject:ratingsView];</span></td></tr>
+<tr><td class="num" id="LN617">617</td><td class="line"><span class='comment'>//        }</span></td></tr>
+<tr><td class="num" id="LN618">618</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN619">619</td><td class="line">    <span class='keyword'>else</span> {</td></tr>
+<tr><td class="num" id="LN620">620</td><td class="line">        <span class='keyword'>float</span> x = 10;</td></tr>
+<tr><td class="num" id="LN621">621</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN622">622</td><td class="line">        <span class='keyword'>float</span>  y =  2;</td></tr>
+<tr><td class="num" id="LN623">623</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN624">624</td><td class="line">        <span class='keyword'>float</span>  width = 15;</td></tr>
+<tr><td class="num" id="LN625">625</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN626">626</td><td class="line">        <span class='keyword'>float</span> height = 15;</td></tr>
+<tr><td class="num" id="LN627">627</td><td class="line">        NSMutableArray *imageFramesWhiteArray = [[NSMutableArray alloc]init];</td></tr>
+<tr><td class="num" id="LN628">628</td><td class="line">        <span class='keyword'>for</span>(<span class='keyword'>int</span> i = 0; i&lt;5;i++)</td></tr>
+<tr><td class="num" id="LN629">629</td><td class="line">        {</td></tr>
+<tr><td class="num" id="LN630">630</td><td class="line">            UIImageView *ratingsView = [[UIImageView alloc]init];</td></tr>
+<tr><td class="num" id="LN631">631</td><td class="line">            ratingsView.frame = CGRectMake(x,y,width,height);</td></tr>
+<tr><td class="num" id="LN632">632</td><td class="line">            [ratingsView setImage:[UIImage imageNamed:@<span class='string_literal'>"white_star.png"</span>]];</td></tr>
+<tr><td class="num" id="LN633">633</td><td class="line">            x = x + 15;</td></tr>
+<tr><td class="num" id="LN634">634</td><td class="line">            [ratingsView setTag:i];</td></tr>
+<tr><td class="num" id="LN635">635</td><td class="line">            [cell.contentView  addSubview:ratingsView];</td></tr>
+<tr><td class="num" id="LN636">636</td><td class="line">            [imageFramesWhiteArray addObject:ratingsView];</td></tr>
+<tr><td class="num" id="LN637">637</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN638">638</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN639">639</td><td class="line">        <span class='keyword'>float</span> xBlue = 10;</td></tr>
+<tr><td class="num" id="LN640">640</td><td class="line">        NSMutableArray *imageFramesArray = [[NSMutableArray alloc]init];</td></tr>
+<tr><td class="num" id="LN641">641</td><td class="line">        <span class='keyword'>for</span>(<span class='keyword'>int</span> i = 0; i&lt;[string intValue];i++)</td></tr>
+<tr><td class="num" id="LN642">642</td><td class="line">        {</td></tr>
+<tr><td class="num" id="LN643">643</td><td class="line">            UIImageView *ratingsView = [[UIImageView alloc]init];</td></tr>
+<tr><td class="num" id="LN644">644</td><td class="line">            ratingsView.frame = CGRectMake(xBlue,y,width,height);</td></tr>
+<tr><td class="num" id="LN645">645</td><td class="line">            [ratingsView setImage:[UIImage imageNamed:@<span class='string_literal'>"blue_star.png"</span>]];</td></tr>
+<tr><td class="num" id="LN646">646</td><td class="line">            xBlue = xBlue + 15;</td></tr>
+<tr><td class="num" id="LN647">647</td><td class="line">            [ratingsView setTag:i];</td></tr>
+<tr><td class="num" id="LN648">648</td><td class="line">            [cell.contentView  addSubview:ratingsView];</td></tr>
+<tr><td class="num" id="LN649">649</td><td class="line">            [imageFramesArray addObject:ratingsView];</td></tr>
+<tr><td class="num" id="LN650">650</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN651">651</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN652">652</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN653">653</td><td class="line">    <span class='keyword'>return</span> cell;</td></tr>
+<tr><td class="num" id="LN654">654</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN655">655</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN656">656</td><td class="line">- (<span class='keyword'>void</span>)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath</td></tr>
+<tr><td class="num" id="LN657">657</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN658">658</td><td class="line">    AssetsDataEntity *assetsData = [SharedObjects sharedInstance].assetsDataEntity;</td></tr>
+<tr><td class="num" id="LN659">659</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN660">660</td><td class="line">    <span class='keyword'>if</span>(<span class='macro'>UI_USER_INTERFACE_IDIOM()<span class='expansion'>([[UIDevice currentDevice] respondsToSelector:@selector(userInterfaceIdiom<br>)] ? [[UIDevice currentDevice] userInterfaceIdiom] : UIUserInterfaceIdiomPhone<br>)</span></span> == UIUserInterfaceIdiomPad)</td></tr>
+<tr><td class="num" id="LN661">661</td><td class="line">	{</td></tr>
+<tr><td class="num" id="LN662">662</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN663">663</td><td class="line">        ReviewCommentsViewController *tempReviewCommentsViewController = [[ReviewCommentsViewController alloc] initWithNibName:@<span class='string_literal'>"ReviewCommentsViewController-iPad"</span> bundle:<span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN664">664</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN665">665</td><td class="line">        self.reviewCommentsViewController = tempReviewCommentsViewController;</td></tr>
+<tr><td class="num" id="LN666">666</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN667">667</td><td class="line">        [self.view addSubview:reviewCommentsViewController.view];</td></tr>
+<tr><td class="num" id="LN668">668</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN669">669</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN670">670</td><td class="line">        tempReviewCommentsViewController.ratingCount =[[NSString alloc] init];</td></tr>
+<tr><td class="num" id="LN671">671</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN672">672</td><td class="line">        [tempReviewCommentsViewController.dateLabel setText:[[assetsData.productReviewArray objectAtIndex:[indexPath row]]commentedDate]];</td></tr>
+<tr><td class="num" id="LN673">673</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN674">674</td><td class="line">        [tempReviewCommentsViewController.commentsLabel setText:[[assetsData.productReviewArray objectAtIndex:[indexPath row]]userComments]];</td></tr>
+<tr><td class="num" id="LN675">675</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN676">676</td><td class="line">        NSString* user = [[[assetsData.productReviewArray objectAtIndex:indexPath.row] userName]description];</td></tr>
+<tr><td class="num" id="LN677">677</td><td class="line">        [tempReviewCommentsViewController.userNameLabel setText:user];</td></tr>
+<tr><td class="num" id="LN678">678</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN679">679</td><td class="line">        NSString* string = [NSString stringWithFormat:@<span class='string_literal'>"%@"</span>,[[assetsData.productReviewArray objectAtIndex:indexPath.row] productRatingView]];</td></tr>
+<tr><td class="num" id="LN680">680</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN681">681</td><td class="line">        <span class='keyword'>float</span> xBlue = 20;</td></tr>
+<tr><td class="num" id="LN682">682</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN683">683</td><td class="line">        <span class='keyword'>float</span>  y =  200;</td></tr>
+<tr><td class="num" id="LN684">684</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN685">685</td><td class="line">        <span class='keyword'>float</span>  width = 40;</td></tr>
+<tr><td class="num" id="LN686">686</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN687">687</td><td class="line">        <span class='keyword'>float</span> height = 40;</td></tr>
+<tr><td class="num" id="LN688">688</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN689">689</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN690">690</td><td class="line">        NSMutableArray *imageFramesArray = [[NSMutableArray alloc]init];</td></tr>
+<tr><td class="num" id="LN691">691</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN692">692</td><td class="line">        <span class='keyword'>for</span>(<span class='keyword'>int</span> i = 0; i&lt;[string intValue];i++)</td></tr>
+<tr><td class="num" id="LN693">693</td><td class="line">        {</td></tr>
+<tr><td class="num" id="LN694">694</td><td class="line">            tempReviewCommentsViewController.ratingImage = [[UIImageView alloc]init];</td></tr>
+<tr><td class="num" id="LN695">695</td><td class="line">            tempReviewCommentsViewController.ratingImage.frame = CGRectMake(xBlue,y,width,height);</td></tr>
+<tr><td class="num" id="LN696">696</td><td class="line">            [tempReviewCommentsViewController.ratingImage setImage:[UIImage imageNamed:@<span class='string_literal'>"blue_star.png"</span>]];</td></tr>
+<tr><td class="num" id="LN697">697</td><td class="line">            xBlue = xBlue + 40;</td></tr>
+<tr><td class="num" id="LN698">698</td><td class="line">            [tempReviewCommentsViewController.ratingImage setTag:i];</td></tr>
+<tr><td class="num" id="LN699">699</td><td class="line">            [tempReviewCommentsViewController.view  addSubview:tempReviewCommentsViewController.ratingImage];</td></tr>
+<tr><td class="num" id="LN700">700</td><td class="line">            [imageFramesArray addObject:tempReviewCommentsViewController.ratingImage];</td></tr>
+<tr><td class="num" id="LN701">701</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN702">702</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN703">703</td><td class="line">        tempReviewCommentsViewController = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN704">704</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN705">705</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN706">706</td><td class="line">    <span class='keyword'>else</span> {</td></tr>
+<tr><td class="num" id="LN707">707</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN708">708</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN709">709</td><td class="line">        ReviewCommentsViewController *tempReviewCommentsViewController = [[ReviewCommentsViewController alloc] initWithNibName:@<span class='string_literal'>"ReviewCommentsViewController"</span> bundle:<span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN710">710</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN711">711</td><td class="line">        self.reviewCommentsViewController = tempReviewCommentsViewController;</td></tr>
+<tr><td class="num" id="LN712">712</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN713">713</td><td class="line">        [self.view addSubview:reviewCommentsViewController.view];</td></tr>
+<tr><td class="num" id="LN714">714</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN715">715</td><td class="line">        tempReviewCommentsViewController.ratingCount =[[NSString alloc] init];</td></tr>
+<tr><td class="num" id="LN716">716</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN717">717</td><td class="line"><span class='comment'>//        [tempReviewCommentsViewController.dateLabel setText:[[assetsData.productReviewArray objectAtIndex:[indexPath row]]commentedDate]];</span></td></tr>
+<tr><td class="num" id="LN718">718</td><td class="line"><span class='comment'>//        </span></td></tr>
+<tr><td class="num" id="LN719">719</td><td class="line"><span class='comment'>//        [tempReviewCommentsViewController.commentsLabel setText:[[assetsData.productReviewArray objectAtIndex:[indexPath row]]userComments]];</span></td></tr>
+<tr><td class="num" id="LN720">720</td><td class="line"><span class='comment'>//        </span></td></tr>
+<tr><td class="num" id="LN721">721</td><td class="line"><span class='comment'>//        NSString* user = [[[assetsData.productReviewArray objectAtIndex:indexPath.row] userName]description];</span></td></tr>
+<tr><td class="num" id="LN722">722</td><td class="line"><span class='comment'>//        [tempReviewCommentsViewController.userNameLabel setText:user];</span></td></tr>
+<tr><td class="num" id="LN723">723</td><td class="line"><span class='comment'>//        </span></td></tr>
+<tr><td class="num" id="LN724">724</td><td class="line"><span class='comment'>//        NSString* string = [NSString stringWithFormat:@"%@",[[assetsData.productReviewArray objectAtIndex:indexPath.row] productRatingView]];</span></td></tr>
+<tr><td class="num" id="LN725">725</td><td class="line"><span class='comment'>//        </span></td></tr>
+<tr><td class="num" id="LN726">726</td><td class="line">        <span class='comment'>///Star Rating</span></td></tr>
+<tr><td class="num" id="LN727">727</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN728">728</td><td class="line">        <span class='keyword'>float</span> xBlue = 10;</td></tr>
+<tr><td class="num" id="LN729">729</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN730">730</td><td class="line">        <span class='keyword'>float</span>  y =  100;</td></tr>
+<tr><td class="num" id="LN731">731</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN732">732</td><td class="line">        <span class='keyword'>float</span>  width = 15;</td></tr>
+<tr><td class="num" id="LN733">733</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN734">734</td><td class="line">        <span class='keyword'>float</span> height = 15;</td></tr>
+<tr><td class="num" id="LN735">735</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN736">736</td><td class="line">        NSMutableArray *<span class="mrange">imageFramesArray</span> = <span class="mrange">[[NSMutableArray alloc]init]</span>;</td></tr>
+<tr><td class="num"></td><td class="line"><div id="EndPath" class="msg msgEvent" style="margin-left:25ex">Value stored to 'imageFramesArray' during its initialization is never read</div></td></tr>
+<tr><td class="num" id="LN737">737</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN738">738</td><td class="line"><span class='comment'>//        for(int i = 0; i&lt;[string intValue];i++)</span></td></tr>
+<tr><td class="num" id="LN739">739</td><td class="line"><span class='comment'>//        {</span></td></tr>
+<tr><td class="num" id="LN740">740</td><td class="line"><span class='comment'>//            tempReviewCommentsViewController.ratingImage = [[UIImageView alloc]init];</span></td></tr>
+<tr><td class="num" id="LN741">741</td><td class="line"><span class='comment'>//            tempReviewCommentsViewController.ratingImage.frame = CGRectMake(xBlue,y,width,height);</span></td></tr>
+<tr><td class="num" id="LN742">742</td><td class="line"><span class='comment'>//            [tempReviewCommentsViewController.ratingImage setImage:[UIImage imageNamed:@"blue_star.png"]];</span></td></tr>
+<tr><td class="num" id="LN743">743</td><td class="line"><span class='comment'>//            xBlue = xBlue + 15;</span></td></tr>
+<tr><td class="num" id="LN744">744</td><td class="line"><span class='comment'>//            [tempReviewCommentsViewController.ratingImage setTag:i];</span></td></tr>
+<tr><td class="num" id="LN745">745</td><td class="line"><span class='comment'>//            [tempReviewCommentsViewController.view  addSubview:tempReviewCommentsViewController.ratingImage];</span></td></tr>
+<tr><td class="num" id="LN746">746</td><td class="line"><span class='comment'>//            [imageFramesArray addObject:tempReviewCommentsViewController.ratingImage];</span></td></tr>
+<tr><td class="num" id="LN747">747</td><td class="line"><span class='comment'>//        }</span></td></tr>
+<tr><td class="num" id="LN748">748</td><td class="line"><span class='comment'>//        </span></td></tr>
+<tr><td class="num" id="LN749">749</td><td class="line"><span class='comment'>//        tempReviewCommentsViewController = nil;</span></td></tr>
+<tr><td class="num" id="LN750">750</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN751">751</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN752">752</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN753">753</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN754">754</td><td class="line">-(<span class='keyword'>void</span>)submitReviewButtonSelected:(id)sender</td></tr>
+<tr><td class="num" id="LN755">755</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN756">756</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN757">757</td><td class="line">    ServiceHandler* service = [[ServiceHandler alloc]init];</td></tr>
+<tr><td class="num" id="LN758">758</td><td class="line">    AssetsDataEntity *assetsData = [SharedObjects sharedInstance].assetsDataEntity;</td></tr>
+<tr><td class="num" id="LN759">759</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN760">760</td><td class="line">    <span class='keyword'>if</span>(isSpecialOffer == <span class='macro'>YES<span class='expansion'>__objc_yes</span></span> )</td></tr>
+<tr><td class="num" id="LN761">761</td><td class="line">    {</td></tr>
+<tr><td class="num" id="LN762">762</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN763">763</td><td class="line">        <span class='keyword'>int</span> rowIndex = reviewProductId; <span class='comment'>//Gets from the SpecialOffer</span></td></tr>
+<tr><td class="num" id="LN764">764</td><td class="line">        service.strId = [[assetsData.specialProductsArray objectAtIndex:rowIndex] specialProductId];</td></tr>
+<tr><td class="num" id="LN765">765</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN766">766</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN767">767</td><td class="line">    <span class='keyword'>else</span> {</td></tr>
+<tr><td class="num" id="LN768">768</td><td class="line">        <span class='keyword'>int</span> rowIndex = reviewProductId; <span class='comment'>//Gets from the results VC</span></td></tr>
+<tr><td class="num" id="LN769">769</td><td class="line">        service.strId = [[assetsData.productArray objectAtIndex:rowIndex] productDetailId];</td></tr>
+<tr><td class="num" id="LN770">770</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN771">771</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN772">772</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN773">773</td><td class="line">    <span class='keyword'>if</span>(<span class='macro'>UI_USER_INTERFACE_IDIOM()<span class='expansion'>([[UIDevice currentDevice] respondsToSelector:@selector(userInterfaceIdiom<br>)] ? [[UIDevice currentDevice] userInterfaceIdiom] : UIUserInterfaceIdiomPhone<br>)</span></span> == UIUserInterfaceIdiomPad)</td></tr>
+<tr><td class="num" id="LN774">774</td><td class="line">	{</td></tr>
+<tr><td class="num" id="LN775">775</td><td class="line">        SubmitReviewViewController* tempSubmitReviewViewCotroller = [[SubmitReviewViewController alloc]initWithNibName:@<span class='string_literal'>"SubmitReviewViewController-iPad"</span> bundle:<span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN776">776</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN777">777</td><td class="line">        self.submitReviewViewController = tempSubmitReviewViewCotroller;</td></tr>
+<tr><td class="num" id="LN778">778</td><td class="line">        [self.view addSubview:submitReviewViewController.view];</td></tr>
+<tr><td class="num" id="LN779">779</td><td class="line">        tempSubmitReviewViewCotroller = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN780">780</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN781">781</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN782">782</td><td class="line">    <span class='keyword'>else</span> {  <span class='comment'>//Iphone</span></td></tr>
+<tr><td class="num" id="LN783">783</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN784">784</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN785">785</td><td class="line">        <span class='keyword'>if</span>(isSpecialOffer == <span class='macro'>YES<span class='expansion'>__objc_yes</span></span>) { <span class='comment'>//If the product selected from specialOffers</span></td></tr>
+<tr><td class="num" id="LN786">786</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN787">787</td><td class="line">            <span class='keyword'>if</span>(loginChk == <span class='macro'>YES<span class='expansion'>__objc_yes</span></span>) { <span class='comment'>//If the user logged in</span></td></tr>
+<tr><td class="num" id="LN788">788</td><td class="line">              SubmitReviewViewController* tempSubmitReviewViewCotroller = [[SubmitReviewViewController alloc]initWithNibName:@<span class='string_literal'>"SubmitReviewViewController"</span> bundle:<span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN789">789</td><td class="line">              </td></tr>
+<tr><td class="num" id="LN790">790</td><td class="line">              self.submitReviewViewController = tempSubmitReviewViewCotroller;</td></tr>
+<tr><td class="num" id="LN791">791</td><td class="line">              submitReviewViewController.isFromSpecialOffer = <span class='macro'>YES<span class='expansion'>__objc_yes</span></span>;</td></tr>
+<tr><td class="num" id="LN792">792</td><td class="line">              tempSubmitReviewViewCotroller.loginChk = <span class='macro'>YES<span class='expansion'>__objc_yes</span></span>;</td></tr>
+<tr><td class="num" id="LN793">793</td><td class="line">              tempSubmitReviewViewCotroller.submitProductID = reviewProductId;</td></tr>
+<tr><td class="num" id="LN794">794</td><td class="line">              [self.view addSubview:submitReviewViewController.view];</td></tr>
+<tr><td class="num" id="LN795">795</td><td class="line">              tempSubmitReviewViewCotroller = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN796">796</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN797">797</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN798">798</td><td class="line">            <span class='keyword'>else</span> { </td></tr>
+<tr><td class="num" id="LN799">799</td><td class="line">               SubmitReviewViewController* tempSubmitReviewViewCotroller = [[SubmitReviewViewController alloc]initWithNibName:@<span class='string_literal'>"SubmitReviewViewController"</span> bundle:<span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN800">800</td><td class="line">               </td></tr>
+<tr><td class="num" id="LN801">801</td><td class="line">               self.submitReviewViewController = tempSubmitReviewViewCotroller;</td></tr>
+<tr><td class="num" id="LN802">802</td><td class="line">               submitReviewViewController.isFromSpecialOffer = <span class='macro'>YES<span class='expansion'>__objc_yes</span></span>;</td></tr>
+<tr><td class="num" id="LN803">803</td><td class="line">               [self.view addSubview:submitReviewViewController.view];</td></tr>
+<tr><td class="num" id="LN804">804</td><td class="line">               tempSubmitReviewViewCotroller = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN805">805</td><td class="line">         }</td></tr>
+<tr><td class="num" id="LN806">806</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN807">807</td><td class="line">        <span class='keyword'>else</span> </td></tr>
+<tr><td class="num" id="LN808">808</td><td class="line">        {</td></tr>
+<tr><td class="num" id="LN809">809</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN810">810</td><td class="line">            <span class='keyword'>if</span>(loginChk == <span class='macro'>YES<span class='expansion'>__objc_yes</span></span>) {</td></tr>
+<tr><td class="num" id="LN811">811</td><td class="line">              </td></tr>
+<tr><td class="num" id="LN812">812</td><td class="line">                SubmitReviewViewController* tempSubmitReviewViewCotroller = [[SubmitReviewViewController alloc]initWithNibName:@<span class='string_literal'>"SubmitReviewViewController"</span> bundle:<span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN813">813</td><td class="line">                </td></tr>
+<tr><td class="num" id="LN814">814</td><td class="line">                tempSubmitReviewViewCotroller.loginChk = <span class='macro'>YES<span class='expansion'>__objc_yes</span></span>;</td></tr>
+<tr><td class="num" id="LN815">815</td><td class="line">                tempSubmitReviewViewCotroller.submitProductID = reviewProductId;</td></tr>
+<tr><td class="num" id="LN816">816</td><td class="line">                tempSubmitReviewViewCotroller.submitArray = array_;</td></tr>
+<tr><td class="num" id="LN817">817</td><td class="line">                self.submitReviewViewController = tempSubmitReviewViewCotroller;</td></tr>
+<tr><td class="num" id="LN818">818</td><td class="line">                [self.view addSubview:submitReviewViewController.view];</td></tr>
+<tr><td class="num" id="LN819">819</td><td class="line">                tempSubmitReviewViewCotroller = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN820">820</td><td class="line">              </td></tr>
+<tr><td class="num" id="LN821">821</td><td class="line">            }</td></tr>
+<tr><td class="num" id="LN822">822</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN823">823</td><td class="line">            <span class='keyword'>else</span> {</td></tr>
+<tr><td class="num" id="LN824">824</td><td class="line">                </td></tr>
+<tr><td class="num" id="LN825">825</td><td class="line">                SubmitReviewViewController* tempSubmitReviewViewCotroller = [[SubmitReviewViewController alloc]initWithNibName:@<span class='string_literal'>"SubmitReviewViewController"</span> bundle:<span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN826">826</td><td class="line">                </td></tr>
+<tr><td class="num" id="LN827">827</td><td class="line">                self.submitReviewViewController = tempSubmitReviewViewCotroller;</td></tr>
+<tr><td class="num" id="LN828">828</td><td class="line">                tempSubmitReviewViewCotroller.loginChk = <span class='macro'>NO<span class='expansion'>__objc_no</span></span>;</td></tr>
+<tr><td class="num" id="LN829">829</td><td class="line">                [self.view addSubview:submitReviewViewController.view];</td></tr>
+<tr><td class="num" id="LN830">830</td><td class="line">                tempSubmitReviewViewCotroller = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN831">831</td><td class="line">                </td></tr>
+<tr><td class="num" id="LN832">832</td><td class="line">            }</td></tr>
+<tr><td class="num" id="LN833">833</td><td class="line">            </td></tr>
+<tr><td class="num" id="LN834">834</td><td class="line">        }</td></tr>
+<tr><td class="num" id="LN835">835</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN836">836</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN837">837</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN838">838</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN839">839</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN840">840</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN841">841</td><td class="line">-(<span class='keyword'>void</span>)specialOfferButtonPressed:(id)sender</td></tr>
+<tr><td class="num" id="LN842">842</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN843">843</td><td class="line">    NSMutableArray *buttonArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@<span class='string_literal'>"browse_btn_normal.png"</span>], [UIImage imageNamed:@<span class='string_literal'>"offers_btn_highlighted.png"</span>], [UIImage imageNamed:@<span class='string_literal'>"mycart_btn_normal.png"</span>], </td></tr>
+<tr><td class="num" id="LN844">844</td><td class="line">                                   <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN845">845</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN846">846</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN847">847</td><td class="line">    <span class='keyword'>int</span> x  = 5;</td></tr>
+<tr><td class="num" id="LN848">848</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN849">849</td><td class="line">    <span class='keyword'>int</span> y = 42;</td></tr>
+<tr><td class="num" id="LN850">850</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN851">851</td><td class="line">    <span class='keyword'>int</span> width = 100;</td></tr>
+<tr><td class="num" id="LN852">852</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN853">853</td><td class="line">    <span class='keyword'>int</span> height = 35;</td></tr>
+<tr><td class="num" id="LN854">854</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN855">855</td><td class="line">    <span class='keyword'>for</span>(<span class='keyword'>int</span> i = 0; i&lt;[buttonArray count]; i++)</td></tr>
+<tr><td class="num" id="LN856">856</td><td class="line">    {</td></tr>
+<tr><td class="num" id="LN857">857</td><td class="line">        UIButton *button = [[UIButton alloc] init];</td></tr>
+<tr><td class="num" id="LN858">858</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN859">859</td><td class="line">        [button setFrame:CGRectMake(x, y, width, height)];</td></tr>
+<tr><td class="num" id="LN860">860</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN861">861</td><td class="line">        [button setBackgroundImage:[buttonArray objectAtIndex:i] forState:UIControlStateNormal];</td></tr>
+<tr><td class="num" id="LN862">862</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN863">863</td><td class="line">        [self.view addSubview:button];</td></tr>
+<tr><td class="num" id="LN864">864</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN865">865</td><td class="line">        x = x + 102;</td></tr>
+<tr><td class="num" id="LN866">866</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN867">867</td><td class="line">        button = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN868">868</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN869">869</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN870">870</td><td class="line">    }</td></tr>
+<tr><td class="num" id="LN871">871</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN872">872</td><td class="line">    AssetsDataEntity *assetsData = [SharedObjects sharedInstance].assetsDataEntity;</td></tr>
+<tr><td class="num" id="LN873">873</td><td class="line">    assetsData.productReviewArray =[[NSMutableArray alloc] init];</td></tr>
+<tr><td class="num" id="LN874">874</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN875">875</td><td class="line">    ServiceHandler *serviceHandler = [[ServiceHandler alloc] init];</td></tr>
+<tr><td class="num" id="LN876">876</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN877">877</td><td class="line">    [serviceHandler specialProductsService:self :@selector(finishedSpecialProductsService:)];</td></tr>
+<tr><td class="num" id="LN878">878</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN879">879</td><td class="line">    serviceHandler = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN880">880</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN881">881</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN882">882</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN883">883</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN884">884</td><td class="line">-(<span class='keyword'>void</span>) finishedSpecialProductsService:(id) data</td></tr>
+<tr><td class="num" id="LN885">885</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN886">886</td><td class="line">    AssetsDataEntity *assetsData = [SharedObjects sharedInstance].assetsDataEntity;</td></tr>
+<tr><td class="num" id="LN887">887</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN888">888</td><td class="line">    [assetsData updateSpecialproductsModel:data];</td></tr>
+<tr><td class="num" id="LN889">889</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN890">890</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN891">891</td><td class="line">    SpecialOffersViewController *tempSpecialOffersViewController = [[SpecialOffersViewController alloc] initWithNibName:@<span class='string_literal'>"SpecialOffersViewController"</span> bundle:<span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN892">892</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN893">893</td><td class="line">    self.specialOffersViewController = tempSpecialOffersViewController;</td></tr>
+<tr><td class="num" id="LN894">894</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN895">895</td><td class="line">    [self.view addSubview:specialOffersViewController.view];</td></tr>
+<tr><td class="num" id="LN896">896</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN897">897</td><td class="line">    tempSpecialOffersViewController = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN898">898</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN899">899</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN900">900</td><td class="line">- (<span class='keyword'>void</span>) myCartButtonPressed:(id)sender</td></tr>
+<tr><td class="num" id="LN901">901</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN902">902</td><td class="line">    NSMutableArray *buttonArrayForMycart = [[NSMutableArray alloc] initWithObjects:</td></tr>
+<tr><td class="num" id="LN903">903</td><td class="line">                                            [UIImage imageNamed:@<span class='string_literal'>"browse_btn_normal.png"</span>],[UIImage imageNamed:@<span class='string_literal'>"offers_btn_normal.png"</span>],</td></tr>
+<tr><td class="num" id="LN904">904</td><td class="line">                                            [UIImage imageNamed:@<span class='string_literal'>"mycart_btn_highlighted.png"</span>],<span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN905">905</td><td class="line">    <span class='keyword'>int</span> x  = 5;</td></tr>
+<tr><td class="num" id="LN906">906</td><td class="line">	</td></tr>
+<tr><td class="num" id="LN907">907</td><td class="line">	<span class='keyword'>int</span> y = 42;</td></tr>
+<tr><td class="num" id="LN908">908</td><td class="line">	</td></tr>
+<tr><td class="num" id="LN909">909</td><td class="line">	<span class='keyword'>int</span> width = 100;</td></tr>
+<tr><td class="num" id="LN910">910</td><td class="line">	</td></tr>
+<tr><td class="num" id="LN911">911</td><td class="line">	<span class='keyword'>int</span> height = 35;</td></tr>
+<tr><td class="num" id="LN912">912</td><td class="line">	</td></tr>
+<tr><td class="num" id="LN913">913</td><td class="line">	<span class='keyword'>for</span>(<span class='keyword'>int</span> i = 0; i&lt;[buttonArrayForMycart count]; i++)</td></tr>
+<tr><td class="num" id="LN914">914</td><td class="line">	{</td></tr>
+<tr><td class="num" id="LN915">915</td><td class="line">		UIButton *button = [[UIButton alloc] init];</td></tr>
+<tr><td class="num" id="LN916">916</td><td class="line">		</td></tr>
+<tr><td class="num" id="LN917">917</td><td class="line">		[button setFrame:CGRectMake(x, y, width, height)];</td></tr>
+<tr><td class="num" id="LN918">918</td><td class="line">		</td></tr>
+<tr><td class="num" id="LN919">919</td><td class="line">		[button setBackgroundImage:[buttonArrayForMycart objectAtIndex:i] forState:UIControlStateNormal];</td></tr>
+<tr><td class="num" id="LN920">920</td><td class="line">		</td></tr>
+<tr><td class="num" id="LN921">921</td><td class="line">		[self.view addSubview:button];</td></tr>
+<tr><td class="num" id="LN922">922</td><td class="line">		</td></tr>
+<tr><td class="num" id="LN923">923</td><td class="line">		x = x + 102;</td></tr>
+<tr><td class="num" id="LN924">924</td><td class="line">        </td></tr>
+<tr><td class="num" id="LN925">925</td><td class="line">       	button = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN926">926</td><td class="line">		</td></tr>
+<tr><td class="num" id="LN927">927</td><td class="line">	}</td></tr>
+<tr><td class="num" id="LN928">928</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN929">929</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN930">930</td><td class="line">    AssetsDataEntity *assetsData = [SharedObjects sharedInstance].assetsDataEntity;</td></tr>
+<tr><td class="num" id="LN931">931</td><td class="line">    assetsData.productReviewArray = [[NSMutableArray alloc] init];</td></tr>
+<tr><td class="num" id="LN932">932</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN933">933</td><td class="line">    AddToBagViewController *tempResultViewController = [[AddToBagViewController alloc] initWithNibName:@<span class='string_literal'>"AddToBagViewController"</span> bundle:<span class='macro'>nil<span class='expansion'>((void*)0)</span></span>];</td></tr>
+<tr><td class="num" id="LN934">934</td><td class="line">	</td></tr>
+<tr><td class="num" id="LN935">935</td><td class="line">	self.addToBagViewController = tempResultViewController;</td></tr>
+<tr><td class="num" id="LN936">936</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN937">937</td><td class="line">	[self.view addSubview:addToBagViewController.view];</td></tr>
+<tr><td class="num" id="LN938">938</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN939">939</td><td class="line">	tempResultViewController = <span class='macro'>nil<span class='expansion'>((void*)0)</span></span>;</td></tr>
+<tr><td class="num" id="LN940">940</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN941">941</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN942">942</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN943">943</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN944">944</td><td class="line">-(<span class='keyword'>void</span>) goBack:(id) sender</td></tr>
+<tr><td class="num" id="LN945">945</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN946">946</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN947">947</td><td class="line">    AssetsDataEntity *assetsData = [SharedObjects sharedInstance].assetsDataEntity;</td></tr>
+<tr><td class="num" id="LN948">948</td><td class="line">    assetsData.productReviewArray = [[NSMutableArray alloc]init];</td></tr>
+<tr><td class="num" id="LN949">949</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN950">950</td><td class="line">	[self.view removeFromSuperview];</td></tr>
+<tr><td class="num" id="LN951">951</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN952">952</td><td class="line">-(<span class='keyword'>void</span>)viewWillAppear:(BOOL)animated </td></tr>
+<tr><td class="num" id="LN953">953</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN954">954</td><td class="line">    [super viewWillAppear:<span class='macro'>YES<span class='expansion'>__objc_yes</span></span>];</td></tr>
+<tr><td class="num" id="LN955">955</td><td class="line">    [reviewTableView reloadData];</td></tr>
+<tr><td class="num" id="LN956">956</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN957">957</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN958">958</td><td class="line">- (<span class='keyword'>void</span>)didReceiveMemoryWarning</td></tr>
+<tr><td class="num" id="LN959">959</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN960">960</td><td class="line">    [super didReceiveMemoryWarning];</td></tr>
+<tr><td class="num" id="LN961">961</td><td class="line">    </td></tr>
+<tr><td class="num" id="LN962">962</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN963">963</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN964">964</td><td class="line"><span class='directive'>#pragma mark - View lifecycle</span></td></tr>
+<tr><td class="num" id="LN965">965</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN966">966</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN967">967</td><td class="line">- (<span class='keyword'>void</span>)viewDidUnload</td></tr>
+<tr><td class="num" id="LN968">968</td><td class="line">{</td></tr>
+<tr><td class="num" id="LN969">969</td><td class="line">    [super viewDidUnload];</td></tr>
+<tr><td class="num" id="LN970">970</td><td class="line">}</td></tr>
+<tr><td class="num" id="LN971">971</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN972">972</td><td class="line"> </td></tr>
+<tr><td class="num" id="LN973">973</td><td class="line">@end</td></tr>
+<tr><td class="num" id="LN974">974</td><td class="line"> </td></tr>
+</table></body></html>
